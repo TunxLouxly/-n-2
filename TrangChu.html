@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TunxPet - Nhận nuôi thú cưng</title>
+    <!-- Nối file CSS (định dạng giao diện) -->
+    <link rel="stylesheet" href="TrangChu.css">
+</head>
+<body>
+
+    <!-- ===== 1. THANH ĐẦU TRANG (HEADER) ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <!-- Logo -->
+            <a href="TrangChu.html" class="logo">🐾 TunxPet</a>
+
+                        <!-- Nút danh mục + menu thả xuống -->
+            <div class="danh-muc-wrap">
+                <button type="button" class="btn-danh-muc" id="nutDanhMuc">
+                    <span class="icon-menu">☰</span>
+                    <span>Danh mục</span>
+                    <span class="mui-ten">▾</span>
+                </button>
+
+                <ul class="danh-muc-tha" id="menuDanhMuc">
+                    <li><a href="#cho">🐶 Chó cần tìm chủ</a></li>
+                    <li><a href="#meo">🐱 Mèo cần tìm chủ</a></li>
+                    <li><a href="#khac">🐰 Thú cưng khác</a></li>
+                    <li><a href="#">📋 Dịch vụ spa thú cưng</a></li>
+                    <li><a href="LienHe.html">📞 Liên hệ TunxPet</a></li>
+                </ul>
+            </div>
+
+            <!-- Ô tìm kiếm -->
+            <form class="search-box" id="formTimKiem">
+                <input type="text" id="oTimKiem" placeholder="Tìm thú cưng của bạn">
+                <button type="submit">🔍</button>
+            </form>
+
+            <!-- Liên hệ + tài khoản -->
+            <a href="LienHe.html" class="btn-lien-he">Liên hệ tư vấn</a>
+                        <div class="tai-khoan">
+                <a href="DangNhap.html" class="btn-dang-nhap">👤 Đăng nhập</a>
+                <a href="DangKy.html" class="btn-dang-ky">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ===== 2. KHỐI ĐẦU TRANG: MENU + BANNER ===== -->
+        <section class="hero">
+                        <!-- Banner bên trái: vì sao nên nhận nuôi -->
+            <div class="banner-trai">
+                <h3>VÌ SAO NÊN<br>NHẬN NUÔI?</h3>
+                <ul>
+                    <li><span>💛</span>Cho một bé có mái ấm yêu thương</li>
+                    <li><span>🆓</span>Không mua bán, không mất phí cho bé</li>
+                    <li><span>🤝</span>Được TunxPet tư vấn tận tình</li>
+                </ul>
+                <a href="QuyTrinh.html" class="btn-vang">Xem quy trình</a>
+                <div class="banner-trai-hinh">🐾</div>
+            </div>
+
+            <!-- Banner lớn ở giữa -->
+            <div class="banner-lon">
+                <div class="banner-chu">
+                    <h1>Nhận nuôi,<br>không mua bán</h1>
+                    <p>Cho các bé một mái ấm yêu thương</p>
+                    <a href="#cho" class="btn-vang">Xem thú cưng ngay</a>
+                </div>
+                <div class="banner-hinh">🐶🐱</div>
+            </div>
+
+            <!-- 2 banner nhỏ bên phải -->
+            <div class="banner-phai">
+                <div class="banner-nho nho-1">
+                    <h3>Quy trình rõ ràng</h3>
+                    <p>Gửi yêu cầu → Được liên hệ → Đón bé về nhà</p>
+                </div>
+                <div class="banner-nho nho-2">
+                    <h3>Bé được chăm sóc</h3>
+                    <p>Tiêm phòng và kiểm tra sức khỏe trước khi nhận nuôi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. CÁC KHỐI THÚ CƯNG ĐANG TÌM CHỦ (cuộn xuống để xem) ===== -->
+        <!-- Khối CHÓ -->
+        <section class="khoi-thu-cung" id="cho" data-loai="Chó">
+            <!-- Cột đỏ bên trái -->
+            <div class="cot-do">
+                <h2>CHÓ<br>TÌM CHỦ</h2>
+                <div class="xuong">🦴 🦴 🦴 🦴 🦴 🦴</div>
+                <div class="cot-do-hinh">🐕 🐶</div>
+            </div>
+
+            <!-- Phần bên phải: các tab + danh sách -->
+            <div class="cot-noi-dung">
+                <ul class="tabs">
+                    <li class="tab active" data-loc="tatca">Mới nhất</li>
+                    <li class="tab" data-loc="con">Bé con</li>
+                    <li class="tab" data-loc="lon">Trưởng thành</li>
+                    <li class="tab" data-loc="duc">Bé đực</li>
+                    <li class="tab" data-loc="cai">Bé cái</li>
+                </ul>
+
+
+                
+                <!-- JavaScript sẽ tự đổ các thẻ thú cưng vào đây -->
+                <div class="luoi-thu-cung"></div>
+            </div>
+        </section>
+
+        <!-- Khối MÈO -->
+        <section class="khoi-thu-cung" id="meo" data-loai="Mèo">
+            <!-- Cột đỏ bên trái -->
+            <div class="cot-do">
+                <h2>MÈO<br>TÌM CHỦ</h2>
+                <div class="xuong">🐾 🐾 🐾 🐾 🐾 🐾</div>
+                <div class="cot-do-hinh">🐈 🐱</div>
+            </div>
+
+            <!-- Phần bên phải: các tab + danh sách -->
+            <div class="cot-noi-dung">
+                <ul class="tabs">
+                    <li class="tab active" data-loc="tatca">Mới nhất</li>
+                    <li class="tab" data-loc="con">Bé con</li>
+                    <li class="tab" data-loc="lon">Trưởng thành</li>
+                    <li class="tab" data-loc="duc">Bé đực</li>
+                    <li class="tab" data-loc="cai">Bé cái</li>
+                </ul>
+
+                <!-- JavaScript sẽ tự đổ các thẻ thú cưng vào đây -->
+                <div class="luoi-thu-cung"></div>
+            </div>
+        </section>
+
+        <!-- Khối THÚ CƯNG KHÁC -->
+        <section class="khoi-thu-cung" id="khac" data-loai="Khác">
+            <!-- Cột đỏ bên trái -->
+            <div class="cot-do">
+                <h2>THÚ CƯNG<br>KHÁC</h2>
+                <div class="xuong">🐾 🐾 🐾 🐾 🐾 🐾</div>
+                <div class="cot-do-hinh">🐰 🐹</div>
+            </div>
+
+            <!-- Phần bên phải: các tab + danh sách -->
+            <div class="cot-noi-dung">
+                <ul class="tabs">
+                    <li class="tab active" data-loc="tatca">Mới nhất</li>
+                    <li class="tab" data-loc="con">Bé con</li>
+                    <li class="tab" data-loc="lon">Trưởng thành</li>
+                    <li class="tab" data-loc="duc">Bé đực</li>
+                    <li class="tab" data-loc="cai">Bé cái</li>
+                </ul>
+
+                <!-- JavaScript sẽ tự đổ các thẻ thú cưng vào đây -->
+                <div class="luoi-thu-cung"></div>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- ===== 4. CÂU CHUYỆN NHẬN NUÔI ===== -->
+    <section class="cau-chuyen container">
+        <h2 class="tieu-de-khoi">CÂU CHUYỆN NHẬN NUÔI</h2>
+        <div class="gach-chan"><span></span>🐾<span></span></div>
+
+        <!-- JavaScript sẽ tự đổ các thẻ câu chuyện vào đây -->
+        <div class="luoi-cau-chuyen" id="luoiCauChuyen"></div>
+        <!-- Các chấm chuyển trang -->
+        <div class="cham-trang" id="chamTrang"></div>
+    </section>
+
+    <!-- ===== 5. KIẾN THỨC CHĂM SÓC THÚ CƯNG ===== -->
+    <section class="dai-xam">
+        <div class="container">
+            <h2 class="tieu-de-khoi">KIẾN THỨC CHĂM SÓC THÚ CƯNG</h2>
+            <div class="gach-chan"><span></span>🐾<span></span></div>
+
+            <div class="kien-thuc">
+                <!-- Bài nổi bật bên trái (đổi khi bấm bài bên phải) -->
+                <article class="kt-lon" id="ktLon"></article>
+                <!-- Danh sách bài bên phải -->
+                <ul class="kt-ds" id="ktDs"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. BÀI VIẾT / TIN TỨC ===== -->
+    <section class="bai-viet container">
+        <div class="cot-bai-viet cot-rong">
+            <h3 class="tieu-de-nho">NUÔI THÚ CƯNG <a href="#">Xem thêm ›</a></h3>
+            <div class="bv-hai-cot">
+                <article class="bv-noi-bat">
+                    <div class="bv-anh bv-do">🐶<br><small>Chuẩn bị đón bé</small></div>
+                    <h4>5 việc cần chuẩn bị trước khi đón thú cưng về nhà</h4>
+                    <p class="ngay">10/10/2026</p>
+                </article>
+                <ul class="bv-ds">
+                    <li><div class="bv-anh-nho bv-vang">🐱</div><div><h5>Vì sao nên nhận nuôi thay vì mua thú cưng?</h5><p class="ngay">08/10/2026</p></div></li>
+                    <li><div class="bv-anh-nho bv-do">💉</div><div><h5>Lịch tiêm phòng cơ bản cho chó con và mèo con</h5><p class="ngay">05/10/2026</p></div></li>
+                    <li><div class="bv-anh-nho bv-vang">🍖</div><div><h5>Cho thú cưng ăn thế nào cho đúng?</h5><p class="ngay">01/10/2026</p></div></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cot-bai-viet">
+            <h3 class="tieu-de-nho">TIN TỪ TUNXPET <a href="#">Xem thêm ›</a></h3>
+            <article class="bv-noi-bat">
+                <div class="bv-anh bv-vang">🏠<br><small>Ngày hội nhận nuôi</small></div>
+                <h4>Ngày hội nhận nuôi: 20 bé tìm được chủ mới</h4>
+            </article>
+            <ul class="bv-tin">
+                <li><a href="#">Thông báo: quy trình xét duyệt yêu cầu nhận nuôi</a></li>
+                <li><a href="#">Kêu gọi tình nguyện viên chăm sóc các bé cuối tuần</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== 7. CHÂN TRANG (FOOTER) ===== -->
+    <footer class="footer">
+        <div class="container footer-luoi">
+            <div>
+                <h4>LIÊN HỆ TUNXPET</h4>
+                <ul>
+                    <li>📍 Hưng Yên, Việt Nam</li>
+                    <li>📞 Hotline: 0900 000 000</li>
+                    <li>🌐 Website: tunxpet.example</li>
+                    <li>✉️ Email: lienhe@tunxpet.example</li>
+                </ul>
+            </div>
+            <div>
+                <h4>VỀ TUNXPET</h4>
+                <ul>
+                    <li><a href="GioiThieu.html">Giới thiệu</a></li>
+                    <li><a href="QuyTrinh.html">📋 Quy trình nhận nuôi</a></li>
+                    <li><a href="TinhNguyenVien.html">Trở thành tình nguyện viên</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#">Điều kiện nhận nuôi</a></li>
+                    <li><a href="#">Cam kết chăm sóc thú cưng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>KẾT NỐI</h4>
+                <div class="mang-xh">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="Zalo">Z</a>
+                </div>
+            </div>
+        </div>
+        <p class="ban-quyen">Copyright © 2026 TunxPet - Đồ án 2, Trường Đại học Công nghệ Kỹ thuật Hưng Yên.</p>
+    </footer>
+
+    <!-- Các nút liên hệ nổi bên phải -->
+    <div class="nut-noi">
+        <a href="#" title="Gọi điện">📞</a>
+        <a href="LienHe.html" title="Zalo">💬</a>
+        <a href="#" title="Messenger">✉️</a>
+    </div>
+    <!-- Nút lên đầu trang -->
+    <button id="nutLenDau" title="Lên đầu trang">▲</button>
+
+    <!-- Nối file JavaScript (xử lý tương tác) - đặt cuối trang -->
+    <script src="TrangChu.js"></script>
+    <script src="XacThuc.js"></script>
+</body>
+
+
+</html>

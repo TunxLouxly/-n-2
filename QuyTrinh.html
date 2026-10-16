@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy trình nhận nuôi - TunxPet</title>
+    <!-- CSS dùng chung (header, footer...) lấy từ trang chủ, rồi đến CSS riêng của trang này -->
+    <link rel="stylesheet" href="TrangChu.css">
+    <link rel="stylesheet" href="QuyTrinh.css">
+</head>
+<body>
+
+    <!-- ===== 1. THANH ĐẦU TRANG (HEADER) ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <!-- Logo -->
+            <a href="TrangChu.html" class="logo">🐾 TunxPet</a>
+
+            <!-- Nút danh mục + menu thả xuống -->
+            <div class="danh-muc-wrap">
+                <button type="button" class="btn-danh-muc" id="nutDanhMuc">
+                    <span class="icon-menu">☰</span>
+                    <span>Danh mục<br>thú cưng</span>
+                    <span class="mui-ten">▾</span>
+                </button>
+
+                <ul class="danh-muc-tha" id="menuDanhMuc">
+                    <li><a href="TrangChu.html#cho">🐶 Chó cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#meo">🐱 Mèo cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#khac">🐰 Thú cưng khác</a></li>
+                    <li><a href="QuyTrinh.html">📋 Quy trình nhận nuôi</a></li>
+                    <li><a href="#">📞 Liên hệ TunxPet</a></li>
+                </ul>
+            </div>
+
+            <!-- Ô tìm kiếm -->
+            <form class="search-box" id="formTimKiem">
+                <input type="text" id="oTimKiem" placeholder="Tìm thú cưng của bạn">
+                <button type="submit">🔍</button>
+            </form>
+
+            <!-- Liên hệ + tài khoản -->
+            <a href="#" class="btn-lien-he">Liên hệ tư vấn</a>
+            <div class="tai-khoan">
+                <a href="#">Đăng nhập</a>
+                <span>|</span>
+                <a href="#">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container trang-noi-dung">
+
+        <!-- Đường dẫn: đang ở đâu -->
+        <p class="duong-dan"><a href="TrangChu.html">Trang chủ</a> › Quy trình nhận nuôi</p>
+
+        <h1 class="tieu-de-trang">QUY TRÌNH NHẬN NUÔI THÚ CƯNG TẠI TUNXPET</h1>
+        <p class="gioi-thieu">
+            TunxPet là website kết nối những bé thú cưng cần tìm chủ với những người yêu động vật.
+            Chúng tôi <strong>không mua bán</strong> thú cưng. Trang này hướng dẫn bạn từng bước để nhận nuôi
+            một bé và những dịch vụ TunxPet hỗ trợ bạn trong suốt quá trình đó.
+        </p>
+
+        <!-- ===== PHẦN 1: DỊCH VỤ ===== -->
+        <h2 class="tieu-de-muc">1. Dịch vụ của TunxPet</h2>
+        <div class="luoi-dich-vu">
+            <div class="the-dich-vu">
+                <div class="dv-icon">💬</div>
+                <h3>Tư vấn chọn bé phù hợp</h3>
+                <p>Nhân viên tư vấn giúp bạn chọn bé phù hợp với điều kiện sống, thời gian và kinh nghiệm chăm sóc của bạn.</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="dv-icon">🩺</div>
+                <h3>Kiểm tra sức khỏe</h3>
+                <p>Mỗi bé được kiểm tra sức khỏe cơ bản trước khi giao cho người nhận nuôi.</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="dv-icon">💉</div>
+                <h3>Tiêm phòng</h3>
+                <p>Các bé được tiêm phòng theo độ tuổi, thông tin tiêm phòng được ghi lại và bàn giao cùng bé.</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="dv-icon">📘</div>
+                <h3>Hướng dẫn chăm sóc</h3>
+                <p>Cung cấp hướng dẫn về ăn uống, vệ sinh, huấn luyện và các lưu ý trong những ngày đầu bé về nhà mới.</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="dv-icon">📋</div>
+                <h3>Theo dõi yêu cầu trực tuyến</h3>
+                <p>Bạn có thể xem trạng thái yêu cầu nhận nuôi của mình ngay trên website mà không cần hỏi lại nhiều lần.</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="dv-icon">🤝</div>
+                <h3>Hỗ trợ sau nhận nuôi</h3>
+                <p>TunxPet vẫn sẵn sàng giải đáp thắc mắc và hỗ trợ bạn sau khi bé đã về nhà.</p>
+            </div>
+        </div>
+
+        <!-- ===== PHẦN 2: CÁC BƯỚC ===== -->
+        <h2 class="tieu-de-muc">2. Các bước nhận nuôi</h2>
+        <ol class="cac-buoc">
+            <li>
+                <div class="so-buoc">1</div>
+                <div class="noi-dung-buoc">
+                    <h3>Đăng ký tài khoản và đăng nhập</h3>
+                    <p>Tạo tài khoản bằng họ tên, email, số điện thoại, tên đăng nhập và mật khẩu. Bạn cần đăng nhập để có thể gửi yêu cầu nhận nuôi.</p>
+                </div>
+            </li>
+            <li>
+                <div class="so-buoc">2</div>
+                <div class="noi-dung-buoc">
+                    <h3>Tìm kiếm và chọn bé</h3>
+                    <p>Duyệt danh sách thú cưng đang tìm chủ theo từng loại (chó, mèo, thú cưng khác), hoặc dùng ô tìm kiếm và các tab lọc theo độ tuổi, giới tính. Bấm vào “Xem chi tiết” để biết thêm về từng bé.</p>
+                </div>
+            </li>
+            <li>
+                <div class="so-buoc">3</div>
+                <div class="noi-dung-buoc">
+                    <h3>Gửi yêu cầu nhận nuôi</h3>
+                    <p>Tại trang chi tiết của bé bạn thích, bấm “Gửi yêu cầu nhận nuôi”, điền lý do muốn nhận nuôi và các thông tin cần thiết rồi gửi đến TunxPet.</p>
+                </div>
+            </li>
+            <li>
+                <div class="so-buoc">4</div>
+                <div class="noi-dung-buoc">
+                    <h3>TunxPet xem xét và liên hệ</h3>
+                    <p>Nhân viên TunxPet xem xét yêu cầu và liên hệ với bạn qua số điện thoại hoặc email. Bạn theo dõi tiến trình tại trang “Yêu cầu nhận nuôi” với các trạng thái:</p>
+                    <p class="trang-thai">
+                        <span>Chờ xử lý</span> ›
+                        <span>Đang liên hệ</span> ›
+                        <span>Đã chấp nhận</span> ›
+                        <span>Hoàn tất</span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="so-buoc">5</div>
+                <div class="noi-dung-buoc">
+                    <h3>Trao đổi và thống nhất</h3>
+                    <p>Hai bên trao đổi về tình trạng của bé, điều kiện chăm sóc và thống nhất thời gian, cách thức bàn giao.</p>
+                </div>
+            </li>
+            <li>
+                <div class="so-buoc">6</div>
+                <div class="noi-dung-buoc">
+                    <h3>Đón bé về nhà</h3>
+                    <p>Bạn nhận bé cùng thông tin sức khỏe, tiêm phòng. Trạng thái của bé trên website được cập nhật thành “Đã nhận nuôi”. TunxPet tiếp tục hỗ trợ khi bạn cần.</p>
+                </div>
+            </li>
+        </ol>
+
+        <!-- ===== PHẦN 3: ĐIỀU KIỆN ===== -->
+        <h2 class="tieu-de-muc">3. Điều kiện nhận nuôi</h2>
+        <ul class="dieu-kien">
+            <li>Từ đủ 18 tuổi, có thông tin liên hệ rõ ràng (họ tên, số điện thoại, email).</li>
+            <li>Có nơi ở ổn định và được sự đồng ý của những người sống cùng nhà.</li>
+            <li>Có thời gian, khả năng tài chính để chăm sóc bé lâu dài (ăn uống, tiêm phòng, khám bệnh).</li>
+            <li>Cam kết yêu thương, không bỏ rơi, không bạo hành và không bán lại thú cưng.</li>
+            <li>Đồng ý để TunxPet liên hệ hỏi thăm tình hình của bé sau khi nhận nuôi.</li>
+        </ul>
+
+        <!-- ===== PHẦN 4: LƯU Ý ===== -->
+        <h2 class="tieu-de-muc">4. Một vài lưu ý</h2>
+        <div class="luu-y">
+            <ul>
+                <li>Nhận nuôi là một <strong>cam kết dài hạn</strong>, hãy cân nhắc kỹ trước khi gửi yêu cầu.</li>
+                <li>Việc nhận nuôi tại TunxPet <strong>hoàn toàn không mua bán</strong>. Hãy cảnh giác với bất kỳ ai nhân danh TunxPet để yêu cầu chuyển tiền.</li>
+                <li>Mỗi yêu cầu sẽ được xem xét riêng, thời gian phản hồi có thể khác nhau tùy số lượng yêu cầu.</li>
+                <li>Mọi thắc mắc, bạn có thể liên hệ TunxPet qua hotline hoặc email ở cuối trang.</li>
+            </ul>
+        </div>
+
+        <!-- Nút kêu gọi -->
+        <div class="keu-goi">
+            <p>Sẵn sàng tìm một người bạn bốn chân cho riêng mình?</p>
+            <a href="TrangChu.html#cho" class="btn-vang">Xem thú cưng đang tìm chủ</a>
+        </div>
+
+    </main>
+
+    <!-- ===== 7. CHÂN TRANG (FOOTER) ===== -->
+    <footer class="footer">
+        <div class="container footer-luoi">
+            <div>
+                <h4>LIÊN HỆ TUNXPET</h4>
+                <ul>
+                    <li>📍 Hưng Yên, Việt Nam</li>
+                    <li>📞 Hotline: 0900 000 000</li>
+                    <li>🌐 Website: tunxpet.example</li>
+                    <li>✉️ Email: lienhe@tunxpet.example</li>
+                </ul>
+            </div>
+            <div>
+                <h4>VỀ TUNXPET</h4>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Quy trình nhận nuôi</a></li>
+                    <li><a href="#">Trở thành tình nguyện viên</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#">Điều kiện nhận nuôi</a></li>
+                    <li><a href="#">Cam kết chăm sóc thú cưng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>KẾT NỐI</h4>
+                <div class="mang-xh">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="Zalo">Z</a>
+                </div>
+            </div>
+        </div>
+        <p class="ban-quyen">Copyright © 2026 TunxPet - Đồ án 2, Trường Đại học Công nghệ Kỹ thuật Hưng Yên.</p>
+    </footer>
+
+    <!-- Các nút liên hệ nổi bên phải -->
+    <div class="nut-noi">
+        <a href="#" title="Gọi điện">📞</a>
+        <a href="#" title="Zalo">💬</a>
+        <a href="#" title="Messenger">✉️</a>
+    </div>
+
+    <!-- Nút lên đầu trang -->
+    <button id="nutLenDau" title="Lên đầu trang">▲</button>
+
+    <!-- JS dùng chung cho các trang con (menu thả xuống, nút lên đầu trang, tìm kiếm) -->
+    <script src="Chung.js"></script>
+</body>
+</html>

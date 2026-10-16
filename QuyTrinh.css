@@ -1,0 +1,113 @@
+/* =========================================================
+   QuyTrinh.css - Định dạng riêng cho trang Quy trình nhận nuôi
+   (header, footer, màu sắc dùng chung đã có trong TrangChu.css)
+   ========================================================= */
+
+.trang-noi-dung {
+    background: #fff;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-bottom: 30px;
+    padding: 30px 40px 40px;
+    max-width: 1100px;               /* trang chữ nên hẹp lại cho dễ đọc */
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+.duong-dan { color: #777; font-size: 14px; margin-bottom: 16px; }
+.duong-dan a { color: var(--mau-chinh); }
+.duong-dan a:hover { text-decoration: underline; }
+
+.tieu-de-trang {
+    color: var(--mau-chinh);
+    font-size: 30px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+}
+.gioi-thieu { line-height: 1.7; font-size: 17px; }
+
+.tieu-de-muc {
+    font-size: 22px;
+    margin: 36px 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--mau-phu);
+}
+
+/* ----- Dịch vụ: lưới 3 cột ----- */
+.luoi-dich-vu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.the-dich-vu {
+    background: #fff9e6;
+    border: 1px solid #f3e1a5;
+    border-radius: 8px;
+    padding: 20px;
+}
+.dv-icon { font-size: 34px; margin-bottom: 8px; }
+.the-dich-vu h3 { font-size: 17px; color: var(--mau-chinh); margin-bottom: 8px; }
+.the-dich-vu p { font-size: 15px; line-height: 1.6; color: #555; }
+
+/* ----- Các bước: danh sách có số thứ tự ----- */
+.cac-buoc { display: flex; flex-direction: column; gap: 18px; }
+.cac-buoc li { display: flex; gap: 18px; }
+.so-buoc {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--mau-chinh);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.noi-dung-buoc h3 { font-size: 18px; margin-bottom: 6px; }
+.noi-dung-buoc p { line-height: 1.7; color: #444; }
+.trang-thai { margin-top: 8px; }
+.trang-thai span {
+    display: inline-block;
+    background: #fdecec;
+    color: var(--mau-chinh);
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+/* ----- Điều kiện: dấu tích ----- */
+.dieu-kien li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+.dieu-kien li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #2b8a3e;
+    font-weight: 700;
+}
+
+/* ----- Lưu ý: khung nền kem ----- */
+.luu-y {
+    background: #fff3cd;
+    border-left: 5px solid var(--mau-phu);
+    border-radius: 6px;
+    padding: 18px 24px;
+}
+.luu-y li { margin: 8px 0 8px 18px; list-style: disc; line-height: 1.6; }
+
+/* ----- Nút kêu gọi cuối trang ----- */
+.keu-goi { text-align: center; margin-top: 40px; }
+.keu-goi p { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+
+/* ----- Màn hình nhỏ ----- */
+@media (max-width: 1000px) {
+    .trang-noi-dung { padding: 20px 16px 30px; }
+    .luoi-dich-vu { grid-template-columns: 1fr; }
+    .tieu-de-trang { font-size: 24px; }
+}

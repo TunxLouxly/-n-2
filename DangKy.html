@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - TunxPet</title>
+    <link rel="stylesheet" href="TrangChu.css">
+    <link rel="stylesheet" href="DangNhap.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="TrangChu.html" class="logo">🐾 TunxPet</a>
+
+            <div class="danh-muc-wrap">
+                <button type="button" class="btn-danh-muc" id="nutDanhMuc">
+                    <span class="icon-menu">☰</span>
+                    <span>Danh mục<br>thú cưng</span>
+                    <span class="mui-ten">▾</span>
+                </button>
+
+                <ul class="danh-muc-tha" id="menuDanhMuc">
+                    <li><a href="TrangChu.html#cho">🐶 Chó cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#meo">🐱 Mèo cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#khac">🐰 Thú cưng khác</a></li>
+                    <li><a href="QuyTrinh.html">📋 Quy trình nhận nuôi</a></li>
+                    <li><a href="LienHe.html">📞 Liên hệ TunxPet</a></li>
+                </ul>
+            </div>
+
+            <form class="search-box" id="formTimKiem">
+                <input type="text" id="oTimKiem" placeholder="Tìm thú cưng của bạn">
+                <button type="submit">🔍</button>
+            </form>
+
+            <a href="LienHe.html" class="btn-lien-he">Liên hệ tư vấn</a>
+            <div class="tai-khoan">
+                <a href="DangNhap.html" class="btn-dang-nhap">👤 Đăng nhập</a>
+                <a href="DangKy.html" class="btn-dang-ky">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NỘI DUNG ĐĂNG KÝ ===== -->
+    <main class="container trang-dn">
+        <section class="khung-dn">
+
+            <div class="dn-trai">
+                <div class="dn-logo">🐾</div>
+                <h2>Tạo tài khoản TunxPet</h2>
+                <p>Chỉ mất một phút để bắt đầu hành trình tìm một người bạn bốn chân.</p>
+                <ul>
+                    <li>✅ Miễn phí, không mua bán thú cưng</li>
+                    <li>📋 Gửi yêu cầu nhận nuôi trực tuyến</li>
+                    <li>🔔 Theo dõi trạng thái yêu cầu của bạn</li>
+                </ul>
+            </div>
+
+            <div class="dn-phai">
+                <h1>Đăng ký</h1>
+                <p class="dn-mo-ta">Tài khoản đăng ký mới sẽ có vai trò <b>Người dùng</b>.</p>
+
+                <form id="formDangKy" novalidate>
+                    <div class="dn-o">
+                        <label for="dkHoTen">Họ và tên *</label>
+                        <input type="text" id="dkHoTen" placeholder="Nguyễn Văn A">
+                        <span class="dn-loi" id="loiHoTen"></span>
+                    </div>
+
+                    <div class="dn-hang">
+                        <div class="dn-o">
+                            <label for="dkEmail">Email *</label>
+                            <input type="text" id="dkEmail" placeholder="ten@email.com">
+                            <span class="dn-loi" id="loiEmail"></span>
+                        </div>
+                        <div class="dn-o">
+                            <label for="dkSdt">Số điện thoại *</label>
+                            <input type="text" id="dkSdt" placeholder="0900000000">
+                            <span class="dn-loi" id="loiSdt"></span>
+                        </div>
+                    </div>
+
+                    <div class="dn-o">
+                        <label for="dkTen">Tên đăng nhập *</label>
+                        <input type="text" id="dkTen" placeholder="4-20 ký tự, không dấu" autocomplete="username">
+                        <span class="dn-loi" id="loiTen"></span>
+                    </div>
+
+                    <div class="dn-hang">
+                        <div class="dn-o">
+                            <label for="dkMatKhau">Mật khẩu *</label>
+                            <div class="dn-mk">
+                                <input type="password" id="dkMatKhau" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password">
+                                <button type="button" class="nut-xem-mk" data-muc="dkMatKhau" title="Hiện / ẩn mật khẩu">👁</button>
+                            </div>
+                            <span class="dn-loi" id="loiMatKhau"></span>
+                        </div>
+                        <div class="dn-o">
+                            <label for="dkNhapLai">Nhập lại mật khẩu *</label>
+                            <div class="dn-mk">
+                                <input type="password" id="dkNhapLai" autocomplete="new-password">
+                                <button type="button" class="nut-xem-mk" data-muc="dkNhapLai" title="Hiện / ẩn mật khẩu">👁</button>
+                            </div>
+                            <span class="dn-loi" id="loiNhapLai"></span>
+                        </div>
+                    </div>
+
+                    <label class="dn-nho dn-dong-y">
+                        <input type="checkbox" id="dkDongY"> Tôi đồng ý với điều khoản dịch vụ và cam kết chăm sóc thú cưng của TunxPet
+                    </label>
+                    <span class="dn-loi" id="loiDongY"></span>
+
+                    <button type="submit" class="dn-nut">Tạo tài khoản</button>
+                </form>
+
+                <div class="dn-hoac"><span>đã có tài khoản?</span></div>
+                <a href="DangNhap.html" class="dn-nut-phu">Đăng nhập</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-luoi">
+            <div>
+                <h4>LIÊN HỆ TUNXPET</h4>
+                <ul>
+                    <li>📍 Hưng Yên, Việt Nam</li>
+                    <li>📞 Hotline: 0900 000 000</li>
+                    <li>🌐 Website: tunxpet.example</li>
+                    <li>✉️ Email: lienhe@tunxpet.example</li>
+                </ul>
+            </div>
+            <div>
+                <h4>VỀ TUNXPET</h4>
+                <ul>
+                    <li><a href="GioiThieu.html">Giới thiệu</a></li>
+                    <li><a href="QuyTrinh.html">Quy trình nhận nuôi</a></li>
+                    <li><a href="TinhNguyenVien.html">Trở thành tình nguyện viên</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#">Điều kiện nhận nuôi</a></li>
+                    <li><a href="#">Cam kết chăm sóc thú cưng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>KẾT NỐI</h4>
+                <div class="mang-xh">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="Zalo">Z</a>
+                </div>
+            </div>
+        </div>
+        <p class="ban-quyen">Copyright © 2026 TunxPet - Đồ án 2, Trường Đại học Công nghệ Kỹ thuật Hưng Yên.</p>
+    </footer>
+
+    <!-- Các nút liên hệ nổi bên phải -->
+    <div class="nut-noi">
+        <a href="#" title="Gọi điện">📞</a>
+        <a href="LienHe.html" title="Zalo">💬</a>
+        <a href="#" title="Messenger">✉️</a>
+    </div>
+
+    <!-- Nút lên đầu trang -->
+    <button id="nutLenDau" title="Lên đầu trang">▲</button>
+
+    <script src="Chung.js"></script>
+    <script src="XacThuc.js"></script>
+    <script src="DangKy.js"></script>
+</body>
+</html>

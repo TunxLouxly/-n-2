@@ -1,0 +1,27 @@
+/* =========================================================
+   QuanTri.css - Giao diện trang quản trị
+   ========================================================= */
+.trang-qt { padding: 30px 15px 50px; min-height: 60vh; }
+.trang-qt h1 { color: var(--mau-chinh); margin-bottom: 8px; }
+.qt-chao { margin-bottom: 24px; color: #555; }
+
+.qt-the-so { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.qt-the {
+    background: #fff;
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    border-top: 4px solid var(--mau-chinh);
+}
+.qt-so { display: block; font-size: 38px; font-weight: 700; color: var(--mau-chinh); }
+
+.qt-ghi-chu { background: #fff; border-radius: 10px; padding: 22px; box-shadow: 0 2px 8px rgba(0, 0, 0, .08); }
+.qt-ghi-chu h2 { margin-bottom: 8px; font-size: 20px; }
+.qt-ghi-chu p { color: #666; line-height: 1.6; }
+
+.logo small { font-size: 13px; font-weight: 400; opacity: .85; }
+
+@media (max-width: 600px) {
+    .qt-the-so { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="TrangChu.css">
+<link rel="stylesheet" href="DangNhap.css">
+    <main class="container trang-dn">
+        <section class="khung-dn">
+
+            <!-- Cột trái: lời chào -->
+            <div class="dn-trai">
+                <div class="dn-logo">🐾</div>
+                <h2>Chào mừng đến với TunxPet</h2>
+                <p>Đăng nhập để gửi yêu cầu nhận nuôi và theo dõi tiến trình của bạn.</p>
+                <ul>
+                    <li>🐶 Xem và tìm kiếm thú cưng đang cần chủ</li>
+                    <li>📋 Gửi và theo dõi yêu cầu nhận nuôi</li>
+                    <li>💬 Được nhân viên TunxPet tư vấn tận tình</li>
+                </ul>
+            </div>
+
+            <!-- Cột phải: form -->
+            <div class="dn-phai">
+                <h1 id="dnTieuDe">Đăng nhập</h1>
+                <p class="dn-mo-ta" id="dnMoTa">Dành cho người dùng, nhân viên và quản trị viên.</p>
+                <p class="dn-thong-bao" id="dnThongBao"></p>
+
+                <!-- Form đăng nhập -->
+                <form id="formDangNhap" novalidate>
+                    <div class="dn-o">
+                        <label for="dnTaiKhoan">Tài khoản</label>
+                        <input type="text" id="dnTaiKhoan" placeholder="Tên đăng nhập hoặc email" autocomplete="username">
+                        <span class="dn-loi" id="loiTaiKhoan"></span>
+                    </div>
+
+                    <div class="dn-o">
+                        <label for="dnMatKhau">Mật khẩu</label>
+                        <div class="dn-mk">
+                            <input type="password" id="dnMatKhau" placeholder="Nhập mật khẩu" autocomplete="current-password">
+                            <button type="button" class="nut-xem-mk" data-muc="dnMatKhau" title="Hiện / ẩn mật khẩu">👁</button>
+                        </div>
+                        <span class="dn-loi" id="loiMatKhau"></span>
+                    </div>
+
+                    <div class="dn-tuy-chon">
+                        <label class="dn-nho"><input type="checkbox" id="dnGhiNho"> Ghi nhớ đăng nhập</label>
+                        <a href="#" id="linkQuenMk">Quên mật khẩu?</a>
+                    </div>
+
+                    <button type="submit" class="dn-nut">Đăng nhập</button>
+                </form>
+
+                <!-- Form quên mật khẩu (mặc định ẩn) -->
+                <form id="formQuenMk" class="an" novalidate>
+                    <div class="dn-o">
+                        <label for="qmTen">Tên đăng nhập</label>
+                        <input type="text" id="qmTen">
+                        <span class="dn-loi" id="loiQmTen"></span>
+                    </div>
+                    <div class="dn-hang">
+                        <div class="dn-o">
+                            <label for="qmEmail">Email đã đăng ký</label>
+                            <input type="text" id="qmEmail">
+                            <span class="dn-loi" id="loiQmEmail"></span>
+                        </div>
+                        <div class="dn-o">
+                            <label for="qmSdt">Số điện thoại đã đăng ký</label>
+                            <input type="text" id="qmSdt">
+                            <span class="dn-loi" id="loiQmSdt"></span>
+                        </div>
+                    </div>
+                    <div class="dn-o">
+                        <label for="qmMatKhau">Mật khẩu mới</label>
+                        <div class="dn-mk">
+                            <input type="password" id="qmMatKhau" autocomplete="new-password">
+                            <button type="button" class="nut-xem-mk" data-muc="qmMatKhau" title="Hiện / ẩn mật khẩu">👁</button>
+                        </div>
+                        <span class="dn-loi" id="loiQmMatKhau"></span>
+                    </div>
+                    <div class="dn-o">
+                        <label for="qmNhapLai">Nhập lại mật khẩu mới</label>
+                        <input type="password" id="qmNhapLai" autocomplete="new-password">
+                        <span class="dn-loi" id="loiQmNhapLai"></span>
+                    </div>
+                    <button type="submit" class="dn-nut">Đặt lại mật khẩu</button>
+                    <p class="dn-quay-lai"><a href="#" id="linkQuayLai">← Quay lại đăng nhập</a></p>
+                </form>
+
+                <div class="dn-hoac"><span>hoặc</span></div>
+                <a href="DangKy.html" class="dn-nut-phu">Tạo tài khoản mới</a>
+
+                <!-- Tài khoản dùng thử (tiện khi bảo vệ, có thể xóa khi nộp) -->
+                <details class="dn-demo">
+                    <summary>Tài khoản dùng thử</summary>
+                    <ul>
+                        <li><span><b>Quản trị viên</b>: admin / admin123</span>
+                            <button type="button" data-tk="admin" data-mk="admin123">Điền</button></li>
+                        <li><span><b>Nhân viên</b>: nhanvien / nhanvien123</span>
+                            <button type="button" data-tk="nhanvien" data-mk="nhanvien123">Điền</button></li>
+                        <li><span><b>Người dùng</b>: nguoidung / nguoidung123</span>
+                            <button type="button" data-tk="nguoidung" data-mk="nguoidung123">Điền</button></li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+    </main>
+        <script src="Chung.js"></script>
+    <script src="XacThuc.js"></script>
+    <script src="DangNhap.js"></script>

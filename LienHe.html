@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ tư vấn - TunxPet</title>
+    <!-- CSS dùng chung (header, footer...) lấy từ trang chủ, rồi đến CSS riêng của trang này -->
+    <link rel="stylesheet" href="TrangChu.css">
+    <link rel="stylesheet" href="LienHe.css">
+</head>
+<body>
+
+    <!-- ===== 1. THANH ĐẦU TRANG (HEADER) ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <!-- Logo -->
+            <a href="TrangChu.html" class="logo">🐾 TunxPet</a>
+
+            <!-- Nút danh mục + menu thả xuống -->
+            <div class="danh-muc-wrap">
+                <button type="button" class="btn-danh-muc" id="nutDanhMuc">
+                    <span class="icon-menu">☰</span>
+                    <span>Danh mục<br>thú cưng</span>
+                    <span class="mui-ten">▾</span>
+                </button>
+
+                <ul class="danh-muc-tha" id="menuDanhMuc">
+                    <li><a href="TrangChu.html#cho">🐶 Chó cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#meo">🐱 Mèo cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#khac">🐰 Thú cưng khác</a></li>
+                    <li><a href="QuyTrinh.html">📋 Quy trình nhận nuôi</a></li>
+                    <li><a href="LienHe.html">📞 Liên hệ TunxPet</a></li>
+                </ul>
+            </div>
+
+            <!-- Ô tìm kiếm -->
+            <form class="search-box" id="formTimKiem">
+                <input type="text" id="oTimKiem" placeholder="Tìm thú cưng của bạn">
+                <button type="submit">🔍</button>
+            </form>
+
+            <!-- Liên hệ + tài khoản -->
+            <a href="LienHe.html" class="btn-lien-he">Liên hệ tư vấn</a>
+            <div class="tai-khoan">
+                <a href="#">Đăng nhập</a>
+                <span>|</span>
+                <a href="#">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container trang-lh">
+
+        <p class="duong-dan"><a href="TrangChu.html">Trang chủ</a> › Liên hệ tư vấn</p>
+
+        <!-- ===== THẺ LIÊN HỆ (giống trang Zalo) ===== -->
+        <section class="the-lien-he">
+            <div class="lh-trai">
+                <div class="lh-dau">
+                    <div class="lh-logo">🐾</div>
+                    <div>
+                        <h1>TunxPet - Nhận nuôi thú cưng</h1>
+                        <p class="lh-loai">Website kết nối nhận nuôi thú cưng</p>
+                        <!-- Thay "#" bằng liên kết Zalo của bạn, ví dụ: https://zalo.me/0900000000 -->
+                        <a href="https://zalo.me/0968649148" class="btn-nhan-tin" target="_blank">💬 Nhắn tin Zalo</a>
+                    </div>
+                </div>
+
+                <h2>Thông tin chi tiết</h2>
+                <ul class="lh-ds">
+                    <li><span>📍</span>Hưng Yên, Việt Nam</li>
+                    <li><span>📞</span><a href="tel:0900000000">0900 000 000</a></li>
+                    <li><span>🕒</span><b id="trangThaiMoCua" class="dang-mo">Đang mở cửa</b> • <span id="gioDong">Đóng cửa lúc 20:00</span></li>
+                    <li><span>✉️</span><a href="mailto:lienhe@tunxpet.example">lienhe@tunxpet.example</a></li>
+                    <li><span>🌐</span>tunxpet.example</li>
+                </ul>
+
+                <p class="lh-mo-ta">
+                    TunxPet là nơi kết nối những bé chó, mèo và thú cưng khác cần tìm chủ với những người yêu động vật.
+                    Hãy nhắn tin Zalo hoặc gửi câu hỏi bên dưới, chúng tôi sẽ phản hồi sớm nhất có thể.
+                </p>
+            </div>
+
+            <!-- Mã QR Zalo bên phải -->
+            <div class="lh-phai">
+                <img src="ANH/6645cbac-b22e-4980-86bf-d8631b8f2898.txt" alt="Mã QR Zalo của TunxPet">
+                <p>Mở Zalo, bấm quét QR để nhắn tin với TunxPet</p>
+            </div>
+        </section>
+
+        <!-- ===== FORM GỬI CÂU HỎI ===== -->
+        <section class="khung-form">
+            <h2>Gửi câu hỏi cho TunxPet</h2>
+            <form id="formLienHe" novalidate>
+                <div class="hang-form">
+                    <div class="o-form">
+                        <label for="hoTen">Họ và tên *</label>
+                        <input type="text" id="hoTen" placeholder="Nguyễn Văn A">
+                        <span class="loi" id="loiHoTen"></span>
+                    </div>
+                    <div class="o-form">
+                        <label for="soDienThoai">Số điện thoại *</label>
+                        <input type="text" id="soDienThoai" placeholder="0900000000">
+                        <span class="loi" id="loiSoDienThoai"></span>
+                    </div>
+                </div>
+
+                <div class="o-form">
+                    <label for="email">Email *</label>
+                    <input type="text" id="email" placeholder="ten@email.com">
+                    <span class="loi" id="loiEmail"></span>
+                </div>
+
+                <div class="o-form">
+                    <label for="noiDung">Nội dung *</label>
+                    <textarea id="noiDung" rows="5" placeholder="Bạn muốn hỏi TunxPet điều gì?"></textarea>
+                    <span class="loi" id="loiNoiDung"></span>
+                </div>
+
+                <button type="submit" class="btn-gui">Gửi liên hệ</button>
+                <p class="thong-bao" id="thongBao"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- ===== 7. CHÂN TRANG (FOOTER) ===== -->
+    <footer class="footer">
+        <div class="container footer-luoi">
+            <div>
+                <h4>LIÊN HỆ TUNXPET</h4>
+                <ul>
+                    <li>📍 Hưng Yên, Việt Nam</li>
+                    <li>📞 Hotline: 0900 000 000</li>
+                    <li>🌐 Website: tunxpet.example</li>
+                    <li>✉️ Email: lienhe@tunxpet.example</li>
+                </ul>
+            </div>
+            <div>
+                <h4>VỀ TUNXPET</h4>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Quy trình nhận nuôi</a></li>
+                    <li><a href="#">Trở thành tình nguyện viên</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#">Điều kiện nhận nuôi</a></li>
+                    <li><a href="#">Cam kết chăm sóc thú cưng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>KẾT NỐI</h4>
+                <div class="mang-xh">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="Zalo">Z</a>
+                </div>
+            </div>
+        </div>
+        <p class="ban-quyen">Copyright © 2026 TunxPet - Đồ án 2, Trường Đại học Công nghệ Kỹ thuật Hưng Yên.</p>
+    </footer>
+
+    <!-- Các nút liên hệ nổi bên phải -->
+    <div class="nut-noi">
+        <a href="#" title="Gọi điện">📞</a>
+        <a href="LienHe.html" title="Zalo">💬</a>
+        <a href="#" title="Messenger">✉️</a>
+    </div>
+
+    <!-- Nút lên đầu trang -->
+    <button id="nutLenDau" title="Lên đầu trang">▲</button>
+
+    <!-- JS dùng chung cho các trang con, rồi đến JS riêng của trang này -->
+    <script src="Chung.js"></script>
+    <script src="LienHe.js"></script>
+</body>
+</html>

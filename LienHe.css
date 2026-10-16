@@ -1,0 +1,126 @@
+/* =========================================================
+   LienHe.css - Định dạng riêng cho trang Liên hệ tư vấn
+   (header, footer, màu sắc dùng chung đã có trong TrangChu.css)
+   ========================================================= */
+
+.trang-lh {
+    max-width: 1140px;
+    margin-top: 16px;
+    margin-bottom: 30px;
+}
+.duong-dan { color: #777; font-size: 14px; margin-bottom: 16px; }
+.duong-dan a { color: var(--mau-chinh); }
+.duong-dan a:hover { text-decoration: underline; }
+
+/* ----- Thẻ liên hệ: bên trái thông tin, bên phải mã QR ----- */
+.the-lien-he {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 50px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+.lh-trai { flex: 1; min-width: 0; }
+.lh-dau { display: flex; gap: 24px; align-items: center; margin-bottom: 36px; }
+.lh-logo {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--mau-chinh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+.lh-dau h1 { font-size: 28px; color: #0b1f3a; }
+.lh-loai { color: #555; margin: 6px 0 14px; font-size: 17px; }
+.btn-nhan-tin {
+    display: inline-block;
+    background: #0068ff;               /* xanh Zalo */
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 8px;
+}
+.btn-nhan-tin:hover { background: #0054cc; }
+
+.the-lien-he h2 { font-size: 22px; margin-bottom: 18px; }
+.lh-ds li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 17px;
+    margin-bottom: 16px;
+}
+.lh-ds li span:first-child { width: 24px; text-align: center; }
+.lh-ds a { color: #0068ff; }
+.lh-ds a:hover { text-decoration: underline; }
+.dang-mo { color: #2fb26a; }          /* xanh lá: đang mở cửa */
+.da-dong { color: #e03131; }          /* đỏ: đã đóng cửa */
+
+.lh-mo-ta {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e5e5;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.lh-phai { width: 260px; flex-shrink: 0; text-align: center; }
+.lh-phai img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+.lh-phai p { font-size: 14px; color: #555; margin-top: 10px; line-height: 1.5; }
+
+/* ----- Form gửi câu hỏi ----- */
+.khung-form {
+    margin-top: 24px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 50px 40px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+.khung-form h2 { color: var(--mau-chinh); font-size: 22px; margin-bottom: 20px; }
+.hang-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.o-form { margin-bottom: 18px; }
+.o-form label { display: block; font-weight: 600; margin-bottom: 6px; }
+.o-form input,
+.o-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+}
+.o-form input:focus,
+.o-form textarea:focus { border-color: var(--mau-chinh); }
+.o-form .co-loi { border-color: #e03131; background: #fff5f5; }   /* ô nhập sai */
+.loi { display: block; color: #e03131; font-size: 14px; margin-top: 4px; min-height: 18px; }
+
+.btn-gui {
+    background: var(--mau-chinh);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn-gui:hover { background: #8f0000; }
+.thong-bao { margin-top: 16px; font-weight: 600; color: #2b8a3e; }
+
+/* ----- Màn hình nhỏ ----- */
+@media (max-width: 1000px) {
+    .the-lien-he { flex-direction: column; padding: 24px 18px; }
+    .lh-dau { flex-direction: column; text-align: center; }
+    .lh-phai { width: 100%; max-width: 260px; margin: 0 auto; }
+    .khung-form { padding: 24px 18px 30px; }
+    .hang-form { grid-template-columns: 1fr; gap: 0; }
+}

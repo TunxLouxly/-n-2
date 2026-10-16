@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị - TunxPet</title>
+    <link rel="stylesheet" href="TrangChu.css">
+    <link rel="stylesheet" href="QuanTri.css">
+</head>
+<!-- data-quyen: chỉ quản trị viên và nhân viên mới được vào trang này -->
+<body data-quyen="quantri,nhanvien">
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="QuanTri.html" class="logo">🐾 TunxPet <small>Quản trị</small></a>
+            <a href="TrangChu.html" class="btn-lien-he">← Về trang chủ</a>
+            <!-- XacThuc.js sẽ tự điền tên người dùng và nút Đăng xuất vào đây -->
+            <div class="tai-khoan"></div>
+        </div>
+    </header>
+
+    <main class="container trang-qt">
+        <h1>Bảng điều khiển</h1>
+        <p class="qt-chao" id="qtChao"></p>
+
+        <div class="qt-the-so">
+            <div class="qt-the"><span class="qt-so" id="soQuanTri">0</span><span>Quản trị viên</span></div>
+            <div class="qt-the"><span class="qt-so" id="soNhanVien">0</span><span>Nhân viên</span></div>
+            <div class="qt-the"><span class="qt-so" id="soNguoiDung">0</span><span>Người dùng</span></div>
+        </div>
+
+        <div class="qt-ghi-chu">
+            <h2>Các chức năng quản trị</h2>
+            <p>Các mục quản lý thú cưng, loại thú cưng, người dùng, yêu cầu nhận nuôi, liên hệ và thống kê sẽ được bổ sung ở các bước tiếp theo.</p>
+        </div>
+    </main>
+
+    <script src="XacThuc.js"></script>
+    <script src="QuanTri.js"></script>
+</body>
+</html>
