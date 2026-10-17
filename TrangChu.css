@@ -22,6 +22,7 @@ body {
     color: var(--mau-chu);
 }
 a { text-decoration: none; color: inherit; }
+html { scroll-padding-top: 100px; }   /* bấm #cho, #meo... không bị header che */
 ul { list-style: none; }
 
 /* Khung giữ nội dung ở giữa, rộng tối đa 1500px */
@@ -36,11 +37,8 @@ ul { list-style: none; }
 .header {
     background: var(--mau-chinh);
     padding: 16px 0;
-    position: fixed;          /* dính trên cùng khi cuộn */
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
     z-index: 1000;
 }
 .header-inner {
@@ -103,7 +101,7 @@ ul { list-style: none; }
     display: grid;
     grid-template-columns: 24% 1fr 24%;   /* 3 cột: menu | banner lớn | banner nhỏ */
     gap: 14px;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .hero-menu {
     background: #fff;
@@ -290,6 +288,7 @@ ul { list-style: none; }
 
 /* ----- 7. Responsive: màn hình nhỏ (tablet, điện thoại) ----- */
 @media (max-width: 1000px) {
+    .header { position: static; }   /* màn hình nhỏ: header cao nên không ghim */
     .header-inner { flex-wrap: wrap; }
     .hero { grid-template-columns: 1fr; }
     .banner-phai { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
@@ -715,3 +714,41 @@ button.btn-danh-muc {
     font-weight: 700;
 }
 .btn-quan-tri:hover { background: #fff; text-decoration: none; }
+/* =========================================================
+   THÔNG BÁO NHỎ + HEADER KHI ĐÃ ĐĂNG NHẬP (XacThuc.js dùng)
+   ========================================================= */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, transform .3s;
+    z-index: 1200;
+}
+.toast.hien { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.xin-chao {
+    color: #fff;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.btn-dang-xuat {
+    padding: 11px 22px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn-dang-xuat:hover { background: #fff; color: var(--mau-chinh); }
