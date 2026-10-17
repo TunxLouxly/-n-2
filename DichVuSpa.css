@@ -1,0 +1,121 @@
+/* =========================================================
+   DichVuSpa.css - Trang dịch vụ spa thú cưng
+   (header, footer, màu sắc dùng chung từ TrangChu.css)
+   ========================================================= */
+
+.spa-trang { padding: 16px 15px 40px; max-width: 1100px; }
+.spa-duong-dan { color: #777; font-size: 14px; margin-bottom: 14px; }
+.spa-duong-dan a { color: var(--mau-chinh); }
+.spa-duong-dan a:hover { text-decoration: underline; }
+
+/* Đầu trang */
+.spa-dau {
+    background: linear-gradient(135deg, #fff1cc, #ffd9a8);
+    border-radius: 12px;
+    padding: 36px 40px;
+    text-align: center;
+}
+.spa-dau h1 { color: var(--mau-chinh); font-size: 32px; margin-bottom: 12px; }
+.spa-dau p { max-width: 760px; margin: 0 auto 22px; line-height: 1.7; color: #444; }
+
+/* Nút */
+.spa-nut-hang { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.spa-nut {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: var(--mau-chinh);
+    color: #fff;
+    font-weight: 700;
+    border: 2px solid var(--mau-chinh);
+}
+.spa-nut:hover { background: #8f0000; border-color: #8f0000; }
+.spa-nut-zalo { background: #0068ff; border-color: #0068ff; }
+.spa-nut-zalo:hover { background: #0050c8; border-color: #0050c8; }
+.spa-nut-trang { background: #fff; color: var(--mau-chinh); border-color: #fff; }
+.spa-nut-trang:hover { background: var(--mau-phu); color: #333; border-color: var(--mau-phu); }
+
+/* Các mục */
+.spa-muc {
+    background: #fff;
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin-top: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+}
+.spa-muc h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--mau-phu);
+    display: inline-block;
+}
+
+/* Thẻ dịch vụ */
+.spa-luoi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.spa-the {
+    background: #fff8e6;
+    border: 1px solid #ffe29a;
+    border-radius: 10px;
+    padding: 22px 20px;
+}
+.spa-the span { font-size: 40px; display: block; margin-bottom: 8px; }
+.spa-the h3 { color: var(--mau-chinh); margin-bottom: 6px; font-size: 18px; }
+.spa-the p { color: #555; line-height: 1.6; font-size: 15px; }
+
+/* Bảng giá */
+.spa-bang-boc { overflow-x: auto; }
+.spa-bang { width: 100%; border-collapse: collapse; min-width: 560px; }
+.spa-bang th, .spa-bang td { padding: 12px 14px; border: 1px solid #eee; text-align: center; }
+.spa-bang th { background: var(--mau-chinh); color: #fff; }
+.spa-bang td:first-child, .spa-bang th:first-child { text-align: left; }
+.spa-bang tbody tr:nth-child(even) { background: #fafafa; }
+.spa-bang td:not(:first-child) { color: var(--mau-chinh); font-weight: 600; }
+.spa-ghi-chu { margin-top: 12px; font-size: 14px; color: #888; line-height: 1.5; }
+
+/* Quy trình */
+.spa-buoc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: buoc; }
+.spa-buoc li { position: relative; padding: 46px 16px 16px; background: #fafafa; border-radius: 10px; border: 1px solid #eee; }
+.spa-buoc li::before {
+    counter-increment: buoc;
+    content: counter(buoc);
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--mau-chinh);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    line-height: 28px;
+}
+.spa-buoc b { display: block; margin-bottom: 4px; }
+.spa-buoc span { color: #555; font-size: 15px; line-height: 1.5; }
+
+/* Lưu ý */
+.spa-luu-y li { margin: 0 0 8px 20px; list-style: disc; line-height: 1.6; color: #444; }
+
+/* Liên hệ cuối trang */
+.spa-cta {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--mau-chinh), #7a0000);
+    color: #fff;
+    border-radius: 12px;
+    padding: 34px 20px;
+    text-align: center;
+}
+.spa-cta h2 { font-size: 26px; margin-bottom: 8px; }
+.spa-cta p { margin-bottom: 20px; opacity: .95; }
+
+@media (max-width: 900px) {
+    .spa-luoi { grid-template-columns: 1fr 1fr; }
+    .spa-buoc { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+    .spa-dau { padding: 26px 18px; }
+    .spa-dau h1 { font-size: 24px; }
+    .spa-muc { padding: 20px 16px; }
+    .spa-luoi, .spa-buoc { grid-template-columns: 1fr; }
+}

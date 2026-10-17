@@ -6,41 +6,7 @@
    4) Tìm kiếm theo tên
    5) Nút lên đầu trang
    ========================================================= */
-
-// ----- 1. Dữ liệu mẫu (sau này sẽ lấy từ SQL Server) -----
-// loai    : "Chó" | "Mèo" | "Khác"   (khớp với data-loai của từng khối trong HTML)
-// nhom    : "Con" (dưới 1 tuổi) | "Lớn" (trưởng thành)
-// anh     : để trống thì hiện emoji; có ảnh thật thì ghi đường dẫn, ví dụ "images/mit.jpg"
-const danhSachThuCung = [
-    // ----- Chó -----
-    { id: 1,  ten: "Mít",     loai: "Chó", tuoi: "6 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐶", anh: "" },
-    { id: 2,  ten: "Lu",      loai: "Chó", tuoi: "1 tuổi",  nhom: "Lớn", gioiTinh: "Cái", icon: "🐕", anh: "" },
-    { id: 3,  ten: "Bông",    loai: "Chó", tuoi: "3 tháng", nhom: "Con", gioiTinh: "Cái", icon: "🐩", anh: "" },
-    { id: 4,  ten: "Vàng",    loai: "Chó", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🦮", anh: "" },
-    { id: 5,  ten: "Bin",     loai: "Chó", tuoi: "4 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐕‍🦺", anh: "" },
-    { id: 6,  ten: "Sóc",     loai: "Chó", tuoi: "3 tuổi",  nhom: "Lớn", gioiTinh: "Cái", icon: "🐶", anh: "" },
-    { id: 7,  ten: "Nâu",     loai: "Chó", tuoi: "5 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐕", anh: "" },
-    { id: 8,  ten: "Đốm",     loai: "Chó", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Cái", icon: "🦮", anh: "" },
-    { id: 9,  ten: "Mực",     loai: "Chó", tuoi: "8 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐩", anh: "" },
-    { id: 10, ten: "Lạc",     loai: "Chó", tuoi: "4 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐕‍🦺", anh: "" },
-
-    // ----- Mèo -----
-    { id: 11, ten: "Mun",      loai: "Mèo", tuoi: "4 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐱", anh: "" },
-    { id: 12, ten: "Kem",      loai: "Mèo", tuoi: "8 tháng", nhom: "Con", gioiTinh: "Cái", icon: "😺", anh: "" },
-    { id: 13, ten: "Tam Thể",  loai: "Mèo", tuoi: "1 tuổi",  nhom: "Lớn", gioiTinh: "Cái", icon: "🐈", anh: "" },
-    { id: 14, ten: "Xám",      loai: "Mèo", tuoi: "2 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐈‍⬛", anh: "" },
-    { id: 15, ten: "Mướp",     loai: "Mèo", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "😸", anh: "" },
-    { id: 16, ten: "Bơ",       loai: "Mèo", tuoi: "5 tháng", nhom: "Con", gioiTinh: "Cái", icon: "😻", anh: "" },
-    { id: 17, ten: "Cam",      loai: "Mèo", tuoi: "3 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐱", anh: "" },
-    { id: 18, ten: "Sữa",      loai: "Mèo", tuoi: "6 tháng", nhom: "Con", gioiTinh: "Cái", icon: "😺", anh: "" },
-    { id: 19, ten: "Lông Dài", loai: "Mèo", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Cái", icon: "🐈", anh: "" },
-    { id: 20, ten: "Mây",      loai: "Mèo", tuoi: "1 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐈‍⬛", anh: "" },
-
-    // ----- Thú cưng khác -----
-    { id: 21, ten: "Thỏ Bông",    loai: "Khác", tuoi: "5 tháng", nhom: "Con", gioiTinh: "Cái", icon: "🐰", anh: "" },
-    { id: 22, ten: "Hamster Nâu", loai: "Khác", tuoi: "3 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐹", anh: "" },
-    { id: 23, ten: "Thỏ Xám",     loai: "Khác", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐇", anh: "" }
-];
+// ----- 1. Dữ liệu thú cưng nằm ở file DuLieuThuCung.js (biến danhSachThuCung) -----
 
 // ----- 2. Lấy các phần tử trên trang -----
 const dsKhoi      = document.querySelectorAll(".khoi-thu-cung");   // cả 3 khối (Chó, Mèo, Khác)
@@ -86,8 +52,8 @@ function veKhoi(khoi) {
 
     let html = "";
     ketQua.forEach(function (tc) {
-        const noiDungAnh = tc.anh
-            ? '<img src="' + tc.anh + '" alt="' + tc.ten + '">'
+            const noiDungAnh = tc.anh
+            ? '<img src="' + tc.anh + '" alt="' + tc.ten + '" onerror="this.outerHTML=\'' + tc.icon + '\'">'
             : tc.icon;
 
         html += `
@@ -95,7 +61,7 @@ function veKhoi(khoi) {
                 <div class="anh-thu-cung">${noiDungAnh}</div>
                 <h3 class="ten-thu-cung">${tc.ten}</h3>
                 <p class="thong-tin">${tc.tuoi} · ${tc.gioiTinh}</p>
-                <a href="#" class="btn-chi-tiet">Xem chi tiết</a>
+                <a href="ChiTiet.html?id=${tc.id}" class="btn-chi-tiet">Xem chi tiết</a>
             </div>`;
     });
     luoi.innerHTML = html;
