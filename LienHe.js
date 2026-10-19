@@ -6,7 +6,7 @@
    ========================================================= */
 
 // ----- 1. Giờ làm việc -----
-const GIO_MO  = 8;     // mở cửa lúc 8:00  (muốn đổi giờ thì sửa 2 số này)
+const GIO_MO  = 8;     // mở cửa lúc 8:00  (muốn đổi giờ thì sửa 2- số này)
 const GIO_DONG = 20;   // đóng cửa lúc 20:00
 
 const trangThaiMoCua = document.getElementById("trangThaiMoCua");

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu cầu của tôi - TunxPet</title>
+    <link rel="stylesheet" href="TrangChu.css">
+    
+    <link rel="stylesheet" href="YeuCau.css">
+</head>
+<body data-quyen="nguoidung">
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="TrangChu.html" class="logo">🐾 TunxPet</a>
+
+            <div class="danh-muc-wrap">
+                <button type="button" class="btn-danh-muc" id="nutDanhMuc">
+                    <span class="icon-menu">☰</span>
+                    <span>Danh mục<br>thú cưng</span>
+                    <span class="mui-ten">▾</span>
+                </button>
+
+                <ul class="danh-muc-tha" id="menuDanhMuc">
+                    <li><a href="TrangChu.html#cho">🐶 Chó cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#meo">🐱 Mèo cần tìm chủ</a></li>
+                    <li><a href="TrangChu.html#khac">🐰 Thú cưng khác</a></li>
+                    <li><a href="QuyTrinh.html">📋 Quy trình nhận nuôi</a></li>
+                    <li><a href="LienHe.html">📞 Liên hệ TunxPet</a></li>
+                </ul>
+            </div>
+
+            <form class="search-box" id="formTimKiem">
+                <input type="text" id="oTimKiem" placeholder="Tìm thú cưng của bạn">
+                <button type="submit">🔍</button>
+            </form>
+
+            <a href="LienHe.html" class="btn-lien-he">Liên hệ tư vấn</a>
+            <div class="tai-khoan">
+                <a href="DangNhap.html" class="btn-dang-nhap">👤 Đăng nhập</a>
+                <a href="DangKy.html" class="btn-dang-ky">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NỘI DUNG ĐĂNG KÝ ===== -->
+        <main class="container yc-trang">
+    <p class="yc-duong-dan"><a href="TrangChu.html">Trang chủ</a> › Yêu cầu của tôi</p>
+    <h1>Yêu cầu nhận nuôi của tôi</h1>
+    <div id="dsYeuCau"></div>
+</main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-luoi">
+            <div>
+                <h4>LIÊN HỆ TUNXPET</h4>
+                <ul>
+                    <li>📍 Hưng Yên, Việt Nam</li>
+                    <li>📞 Hotline: 0900 000 000</li>
+                    <li>🌐 Website: tunxpet.example</li>
+                    <li>✉️ Email: lienhe@tunxpet.example</li>
+                </ul>
+            </div>
+            <div>
+                <h4>VỀ TUNXPET</h4>
+                <ul>
+                    <li><a href="GioiThieu.html">Giới thiệu</a></li>
+                    <li><a href="QuyTrinh.html">Quy trình nhận nuôi</a></li>
+                    <li><a href="TinhNguyenVien.html">Trở thành tình nguyện viên</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#">Điều kiện nhận nuôi</a></li>
+                    <li><a href="#">Cam kết chăm sóc thú cưng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>KẾT NỐI</h4>
+                <div class="mang-xh">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="Zalo">Z</a>
+                </div>
+            </div>
+        </div>
+        <p class="ban-quyen">Copyright © 2026 TunxPet - Đồ án 2, Trường Đại học Công nghệ Kỹ thuật Hưng Yên.</p>
+    </footer>
+
+    <!-- Các nút liên hệ nổi bên phải --->
+    <div class="nut-noi">
+        <a href="#" title="Gọi điện">📞</a>
+        <a href="LienHe.html" title="Zalo">💬</a>
+        <a href="#" title="Messenger">✉️</a>
+    </div>
+
+    <!-- Nút lên đầu trang -->
+    <button id="nutLenDau" title="Lên đầu trang">▲</button>
+
+    <script src="DuLieuThuCung.js"></script>
+<script src="DuLieuYeuCau.js"></script>
+<script src="Chung.js"></script>
+<script src="XacThuc.js"></script>
+<script src="YeuCauCuaToi.js"></script>
+</body>
+
+
+</html>

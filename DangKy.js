@@ -6,7 +6,7 @@
 
     const form = document.getElementById("formDangKy");
 
-    // Nếu đã đăng nhập thì không cần đăng ký nữa
+    // Nếu đã đăng nhập thì không cần đăng ký -nữa
     const dangDangNhap = XacThuc.layNguoiDung();
     if (dangDangNhap) {
         window.location.href = XacThuc.trangChuaVaiTro(dangDangNhap.vaiTro);

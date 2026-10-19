@@ -1,5 +1,5 @@
 /* =========================================================
-   DangNhap.css - Giao diện trang Đăng nhập và Đăng ký
+   DangNhap.css - Giao diện trang Đăng nhập và Đăng ký-
    ========================================================= */
 
 .trang-dn { padding: 40px 15px; }
@@ -14,6 +14,8 @@
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
 }
+
+
 
 /* ----- Cột trái: lời chào ----- */
 .dn-trai {

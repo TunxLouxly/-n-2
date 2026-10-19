@@ -19,4 +19,6 @@
     document.getElementById("soNhanVien").textContent = dem("nhanvien");
     document.getElementById("soNguoiDung").textContent = dem("nguoidung");
 
+
+    
 })();

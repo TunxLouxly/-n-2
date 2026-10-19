@@ -135,6 +135,10 @@
         if (nd.vaiTro === "quantri" || nd.vaiTro === "nhanvien") {
             html += '<a href="QuanTri.html" class="btn-quan-tri">Trang quản trị</a>';
         }
+                // Người dùng thường có thêm nút theo dõi yêu cầu nhận nuôi
+        if (nd.vaiTro === "nguoidung") {
+            html += '<a href="YeuCauCuaToi.html" class="btn-quan-tri">Yêu cầu của tôi</a>';
+        }
         html += '<button type="button" class="btn-dang-xuat" id="nutDangXuat">Đăng xuất</button>';
         khung.innerHTML = html;
     }

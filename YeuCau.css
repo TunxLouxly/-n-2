@@ -1,0 +1,185 @@
+/* =========================================================
+   YeuCau.css - Yêu cầu nhận nuôi: khung nhập thông tin, thẻ theo dõi, thanh tiến trình
+   Dùng cho: ChiTiet.html (form) và YeuCauCuaToi.html (theo dõi)
+   ========================================================= */
+
+/* ----- Khung nhập thông tin (hiện chồng lên trang) ----- */
+.yc-nen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1100;
+    padding: 16px;
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: center;
+}
+.yc-nen.mo { display: flex; }
+.yc-hop {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 30px;
+    width: 100%;
+    max-width: 640px;
+    margin: 30px auto;
+}
+.yc-hop h2 { color: var(--mau-chinh); margin-bottom: 6px; padding-right: 30px; }
+.yc-mo-ta { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+.yc-dong {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+}
+.yc-dong:hover { color: var(--mau-chinh); }
+
+.yc-hang { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.yc-o { margin-bottom: 14px; }
+.yc-o label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+.yc-o input, .yc-o select, .yc-o textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #fff;
+}
+.yc-o textarea { min-height: 90px; resize: vertical; }
+.yc-o input:focus, .yc-o select:focus, .yc-o textarea:focus {
+    outline: none;
+    border-color: var(--mau-chinh);
+    box-shadow: 0 0 0 3px rgba(192, 0, 0, .12);
+}
+.yc-loi { display: block; color: #d32f2f; font-size: 13px; margin-top: 3px; }
+.yc-cam-ket { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.5; cursor: pointer; }
+.yc-cam-ket input { margin-top: 4px; }
+.yc-nut-hang { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+
+/* ----- Nút ----- */
+.yc-nut {
+    display: inline-block;
+    padding: 11px 26px;
+    border-radius: 30px;
+    border: 2px solid var(--mau-chinh);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+}
+.yc-nut-do { background: var(--mau-chinh); color: #fff; }
+.yc-nut-do:hover { background: #8f0000; border-color: #8f0000; }
+.yc-nut-vien { background: #fff; color: var(--mau-chinh); }
+.yc-nut-vien:hover { background: var(--mau-chinh); color: #fff; }
+
+/* Nút "Gửi yêu cầu nhận nuôi" trên trang chi tiết khi đã gửi rồi */
+.ct-nut-chinh.da-gui { background: #2e7d32; border-color: #2e7d32; }
+.ct-nut-chinh.da-gui:hover { background: #1b5e20; border-color: #1b5e20; }
+
+/* ----- Trang "Yêu cầu của tôi" ----- */
+.yc-trang { padding: 16px 15px 40px; max-width: 900px; min-height: 60vh; }
+.yc-duong-dan { color: #777; font-size: 14px; margin-bottom: 10px; }
+.yc-duong-dan a { color: var(--mau-chinh); }
+.yc-trang h1 { color: var(--mau-chinh); margin-bottom: 16px; }
+
+.yc-the {
+    background: #fff;
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+}
+.yc-the-dau { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.yc-the-dau > div:nth-child(2) { flex: 1; }
+.yc-the-dau h2 { font-size: 20px; }
+.yc-the-dau h2 a:hover { color: var(--mau-chinh); text-decoration: underline; }
+.yc-the-dau p { color: #888; font-size: 14px; margin-top: 2px; }
+.yc-anh {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    background: #fdecec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.yc-anh img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+
+/* Nhãn trạng thái */
+.yc-nhan { display: inline-block; padding: 4px 12px; border-radius: 14px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.yc-nhan.yc-guidi   { background: #e3f2fd; color: #1565c0; }
+.yc-nhan.yc-xemxet  { background: #fff3cd; color: #8a6d00; }
+.yc-nhan.yc-daduyet { background: #e8f5e9; color: #2e7d32; }
+.yc-nhan.yc-tuchoi  { background: #ffebee; color: #c62828; }
+
+/* Thanh tiến trình 3 bước */
+.yc-buoc { display: grid; grid-template-columns: repeat(3, 1fr); margin: 6px 0 16px; list-style: none; padding: 0; }
+.yc-buoc li { position: relative; text-align: center; padding: 0 6px; }
+.yc-buoc li::before {                        /* đường nối với bước trước */
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -50%;
+    width: 100%;
+    height: 3px;
+    background: #ddd;
+}
+.yc-buoc li:first-child::before { display: none; }
+.yc-buoc li span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #fff;
+    font-weight: 700;
+}
+.yc-buoc li b { display: block; margin-top: 6px; font-size: 14px; color: #999; }
+.yc-buoc li small { display: block; font-size: 12px; color: #aaa; min-height: 16px; }
+.yc-buoc li.xong::before { background: #2e7d32; }
+.yc-buoc li.xong span { background: #2e7d32; }
+.yc-buoc li.xong b { color: #333; }
+.yc-buoc li.hien-tai::before { background: #1565c0; }
+.yc-buoc li.hien-tai span { background: #1565c0; }
+.yc-buoc li.hien-tai b { color: #1565c0; }
+.yc-buoc li.tu-choi::before { background: #c62828; }
+.yc-buoc li.tu-choi span { background: #c62828; }
+.yc-buoc li.tu-choi b { color: #c62828; }
+
+.yc-loi-nhan { padding: 10px 14px; border-radius: 8px; line-height: 1.5; font-size: 15px; }
+.yc-loi-nhan.yc-guidi   { background: #e3f2fd; }
+.yc-loi-nhan.yc-xemxet  { background: #fff8e1; }
+.yc-loi-nhan.yc-daduyet { background: #e8f5e9; }
+.yc-loi-nhan.yc-tuchoi  { background: #ffebee; }
+.yc-ghi-chu { margin-top: 10px; line-height: 1.5; font-size: 15px; }
+
+.yc-chi-tiet { margin-top: 14px; font-size: 14px; }
+.yc-chi-tiet summary { cursor: pointer; font-weight: 600; color: var(--mau-chinh); }
+.yc-chi-tiet dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; margin-top: 10px; }
+.yc-chi-tiet dt { font-size: 12px; color: #888; text-transform: uppercase; }
+.yc-chi-tiet dd { margin: 0; line-height: 1.4; white-space: pre-line; }
+
+.yc-trong { background: #fff; border-radius: 10px; padding: 50px 20px; text-align: center; }
+.yc-trong p { color: #666; margin-bottom: 18px; }
+
+@media (max-width: 600px) {
+    .yc-hang, .yc-chi-tiet dl { grid-template-columns: 1fr; gap: 0 14px; }
+    .yc-hop { padding: 22px 16px; }
+    .yc-the { padding: 16px; }
+    .yc-the-dau { flex-wrap: wrap; }
+    .yc-buoc li b { font-size: 12px; }
+}

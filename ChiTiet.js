@@ -5,7 +5,7 @@
    ========================================================= */
 (function () {
 
-    const KHOA_YEU_CAU = "tunxpet_yeucau";          // danh sách yêu cầu nhận nuôi (localStorage)
+            // danh sách yêu cầu nhận nuôi (localStorage)
     const khung = document.getElementById("chiTiet");
     const thoat = XacThuc.thoatHtml;                // chống chèn mã HTML
 
@@ -193,23 +193,66 @@
         nho.classList.add("chon");
     });
 
-    // ----- 8. Gửi yêu cầu nhận nuôi -----
+        // ----- 8. Gửi yêu cầu nhận nuôi (nhập thông tin rồi gửi để quản trị kiểm tra) -----
     const nutNhanNuoi = document.getElementById("nutNhanNuoi");
 
-    function docYeuCau() {
-        try { return JSON.parse(localStorage.getItem(KHOA_YEU_CAU)) || []; } catch (e) { return []; }
-    }
-    function daGui(nd) {
-        return docYeuCau().some(function (y) { return y.thuCungId === tc.id && y.nguoiDungId === nd.id; });
+    // Yêu cầu còn hiệu lực của người dùng này cho bé này (yêu cầu bị từ chối thì được gửi lại)
+    function yeuCauDangCo(nd) {
+        return YeuCauDL.docTatCa().find(function (y) {
+            return y.thuCungId === tc.id && y.nguoiDungId === nd.id && y.trangThai !== "tuchoi";
+        });
     }
     function capNhatNut() {
         const nd = XacThuc.layNguoiDung();
-        if (nd && nd.vaiTro === "nguoidung" && daGui(nd)) {
-            nutNhanNuoi.textContent = "✔ Đã gửi yêu cầu";
-            nutNhanNuoi.disabled = true;
+        if (nd && nd.vaiTro === "nguoidung" && yeuCauDangCo(nd)) {
+            nutNhanNuoi.textContent = "✔ Đã gửi yêu cầu · Xem trạng thái";
+            nutNhanNuoi.classList.add("da-gui");
         }
     }
     capNhatNut();
+
+    // Khung nhập thông tin (hiện chồng lên trang)
+    const nenYC = document.createElement("div");
+    nenYC.className = "yc-nen";
+    document.body.appendChild(nenYC);
+
+    function moForm(nd) {
+        const tk = XacThuc.layTatCa().find(function (t) { return t.id === nd.id; }) || {};
+        nenYC.innerHTML =
+            '<div class="yc-hop">' +
+                '<button type="button" class="yc-dong" data-dong="1" title="Đóng">×</button>' +
+                '<h2>Đăng ký nhận nuôi ' + thoat(tc.ten) + '</h2>' +
+                '<p class="yc-mo-ta">Vui lòng điền thông tin thật để TunxPet kiểm tra điều kiện nhận nuôi. Các ô có dấu * là bắt buộc.</p>' +
+                '<form id="formYeuCau" novalidate>' +
+                    '<div class="yc-hang">' +
+                        '<div class="yc-o"><label for="ycHoTen">Họ và tên *</label><input type="text" id="ycHoTen" value="' + thoat(nd.hoTen) + '"><span class="yc-loi" id="loiHoTen"></span></div>' +
+                        '<div class="yc-o"><label for="ycSdt">Số điện thoại *</label><input type="text" id="ycSdt" value="' + thoat(tk.sdt || "") + '"><span class="yc-loi" id="loiSdt"></span></div>' +
+                    '</div>' +
+                    '<div class="yc-hang">' +
+                        '<div class="yc-o"><label for="ycEmail">Email *</label><input type="text" id="ycEmail" value="' + thoat(tk.email || "") + '"><span class="yc-loi" id="loiEmail"></span></div>' +
+                        '<div class="yc-o"><label for="ycNghe">Nghề nghiệp</label><input type="text" id="ycNghe"></div>' +
+                    '</div>' +
+                    '<div class="yc-o"><label for="ycDiaChi">Địa chỉ hiện tại *</label><input type="text" id="ycDiaChi" placeholder="Số nhà, đường, phường/xã, tỉnh/thành"><span class="yc-loi" id="loiDiaChi"></span></div>' +
+                    '<div class="yc-hang">' +
+                        '<div class="yc-o"><label for="ycNhaO">Nơi ở</label><select id="ycNhaO"><option>Nhà riêng</option><option>Chung cư</option><option>Nhà thuê / phòng trọ</option><option>Khác</option></select></div>' +
+                        '<div class="yc-o"><label for="ycKinhNghiem">Kinh nghiệm nuôi thú cưng</label><select id="ycKinhNghiem"><option>Chưa từng nuôi</option><option>Đã từng nuôi</option><option>Đang nuôi</option></select></div>' +
+                    '</div>' +
+                    '<div class="yc-o"><label for="ycLyDo">Vì sao bạn muốn nhận nuôi ' + thoat(tc.ten) + '? *</label><textarea id="ycLyDo" maxlength="500" placeholder="Chia sẻ điều kiện chăm sóc, thời gian, người sống cùng... (tối thiểu 20 ký tự)"></textarea><span class="yc-loi" id="loiLyDo"></span></div>' +
+                    '<label class="yc-cam-ket"><input type="checkbox" id="ycCamKet"> Tôi cam kết thông tin trên là chính xác, chăm sóc bé lâu dài và đồng ý để TunxPet kiểm tra, hỏi thăm định kỳ.</label>' +
+                    '<span class="yc-loi" id="loiCamKet"></span>' +
+                    '<div class="yc-nut-hang"><button type="submit" class="yc-nut yc-nut-do">Gửi yêu cầu</button>' +
+                    '<button type="button" class="yc-nut yc-nut-vien" data-dong="1">Hủy</button></div>' +
+                '</form>' +
+            '</div>';
+        nenYC.classList.add("mo");
+        document.getElementById("ycSdt").focus();
+    }
+    function dongForm() { nenYC.classList.remove("mo"); }
+
+    nenYC.addEventListener("click", function (e) {
+        if (e.target === nenYC || e.target.closest("[data-dong]")) dongForm();
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") dongForm(); });
 
     nutNhanNuoi.addEventListener("click", function () {
         const nd = XacThuc.layNguoiDung();
@@ -223,19 +266,50 @@
             XacThuc.hienToast("Tài khoản quản trị / nhân viên không thể gửi yêu cầu nhận nuôi.");
             return;
         }
-        if (daGui(nd)) return;
+        if (yeuCauDangCo(nd)) { window.location.href = "YeuCauCuaToi.html"; return; }   // đã gửi rồi -> xem trạng thái
+        moForm(nd);
+    });
 
-        const ds = docYeuCau();
-        ds.push({
-            id: ds.reduce(function (max, y) { return Math.max(max, y.id); }, 0) + 1,
+    // Bấm "Gửi yêu cầu" trong form
+    nenYC.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const nd = XacThuc.layNguoiDung();
+        if (!nd) return;
+
+        const hoTen = document.getElementById("ycHoTen").value.trim();
+        const sdt = document.getElementById("ycSdt").value.trim();
+        const email = document.getElementById("ycEmail").value.trim();
+        const diaChi = document.getElementById("ycDiaChi").value.trim();
+        const lyDo = document.getElementById("ycLyDo").value.trim();
+        const camKet = document.getElementById("ycCamKet").checked;
+
+        nenYC.querySelectorAll(".yc-loi").forEach(function (s) { s.textContent = ""; });
+        let hopLe = true;
+        function loi(id, noiDung) { document.getElementById(id).textContent = noiDung; hopLe = false; }
+
+        if (hoTen.length < 2) loi("loiHoTen", "Vui lòng nhập họ và tên.");
+        if (!/^0\d{9}$/.test(sdt)) loi("loiSdt", "Số điện thoại gồm 10 số, bắt đầu bằng 0.");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) loi("loiEmail", "Email chưa đúng định dạng.");
+        if (diaChi.length < 5) loi("loiDiaChi", "Vui lòng nhập địa chỉ đầy đủ.");
+        if (lyDo.length < 20) loi("loiLyDo", "Vui lòng viết ít nhất 20 ký tự.");
+        if (!camKet) loi("loiCamKet", "Bạn cần đồng ý cam kết để tiếp tục.");
+        if (!hopLe) return;
+
+        YeuCauDL.themMoi({
             thuCungId: tc.id,
             nguoiDungId: nd.id,
-            ngayGui: new Date().toISOString(),
-            trangThai: "Chờ xử lý"        // Chờ xử lý › Đang liên hệ › Đã chấp nhận › Hoàn tất
+            hoTen: hoTen,
+            sdt: sdt,
+            email: email,
+            diaChi: diaChi,
+            ngheNghiep: document.getElementById("ycNghe").value.trim(),
+            nhaO: document.getElementById("ycNhaO").value,
+            kinhNghiem: document.getElementById("ycKinhNghiem").value,
+            lyDo: lyDo
         });
-        localStorage.setItem(KHOA_YEU_CAU, JSON.stringify(ds));
+        dongForm();
         capNhatNut();
-        XacThuc.hienToast("Đã gửi yêu cầu nhận nuôi " + tc.ten + "! Nhân viên sẽ sớm liên hệ bạn.");
+        XacThuc.hienToast("Đã gửi yêu cầu nhận nuôi " + tc.ten + "! Bạn có thể theo dõi trạng thái ở mục Yêu cầu của tôi.");
     });
     // ----- 9. Đánh giá của người nhận nuôi (lưu trong localStorage) -----
     const KHOA_DANH_GIA = "tunxpet_danhgia";
@@ -390,7 +464,7 @@
             return;
         }
 
-        // Nhân viên / quản trị trả lời
+        // Nhân viên / quản trị trả lời-
         if (e.target.classList.contains("ct-form-tl") && laNhanVien(nd)) {
             const noiDung = e.target.querySelector("textarea").value.trim();
             if (noiDung.length < 2) { e.target.querySelector(".ct-loi").textContent = "Vui lòng nhập nội dung."; return; }
