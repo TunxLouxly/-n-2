@@ -61,7 +61,7 @@
     }
 
     khung.innerHTML = dsCuaToi.map(function (y) {
-        const be = danhSachThuCung.find(function (t) { return t.id === y.thuCungId; });
+        const be = ThuCungDL.docTatCa().find(function (t) { return t.id === y.thuCungId; });
         const ten = be ? be.ten : "Bé không còn trong danh sách";
         const anh = be && be.anh ? '<img src="' + be.anh + '" alt="' + thoat(ten) + '">' : (be ? be.icon : "🐾");
         return '<article class="yc-the">' +

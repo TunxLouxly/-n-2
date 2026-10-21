@@ -752,3 +752,34 @@ button.btn-danh-muc {
     cursor: pointer;
 }
 .btn-dang-xuat:hover { background: #fff; color: var(--mau-chinh); }
+/* ----- Logo góc trái header (cắt đúng phần hình tròn của ảnh) ----- */
+.logo-anh {
+    display: inline-block;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.logo-anh img {
+    position: absolute;
+    width: 144px;          /* phóng nhỏ ảnh sao cho đường tròn vừa khít 56px */
+    max-width: none;
+    left: -45px;
+    top: -16px;
+}
+/* Logo + chữ TunxPet nằm cạnh nhau */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.logo-chu {
+    color: #fff;              /* chữ trắng trên nền đỏ */
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+.logo-anh { flex-shrink: 0; }

@@ -6,6 +6,7 @@
     <title>Trang quản trị - TunxPet</title>
     <link rel="stylesheet" href="TrangChu.css">
     <link rel="stylesheet" href="QuanTri.css">
+    <link rel="stylesheet" href="YeuCau.css">
 </head>
 <!-- data-quyen: chỉ quản trị viên và nhân viên mới được vào trang này -->
 <body data-quyen="quantri,nhanvien">
@@ -19,23 +20,38 @@
         </div>
     </header>
 
-    <main class="container trang-qt">
-        <h1>Bảng điều khiển</h1>
-        <p class="qt-chao" id="qtChao"></p>
+        <!-- ===== TRANG QUẢN TRỊ ===== -->
+    <main class="qt-trang">
 
-        <div class="qt-the-so">
-            <div class="qt-the"><span class="qt-so" id="soQuanTri">0</span><span>Quản trị viên</span></div>
-            <div class="qt-the"><span class="qt-so" id="soNhanVien">0</span><span>Nhân viên</span></div>
-            <div class="qt-the"><span class="qt-so" id="soNguoiDung">0</span><span>Người dùng</span></div>
+        <!-- Menu bên trái -->
+        <aside class="qt-menu">
+            <h2>Quản trị TunxPet</h2>
+            <button type="button" class="qt-tab hien" data-tab="tongquan">📊 Tổng quan</button>
+            <button type="button" class="qt-tab" data-tab="yeucau">📋 Đơn nhận nuôi <span class="qt-chip" id="chipYeuCau"></span></button>
+            <button type="button" class="qt-tab" data-tab="thucung">🐾 Thú cưng</button>
+            <button type="button" class="qt-tab" data-tab="danhgia">⭐ Đánh giá</button>
+            <button type="button" class="qt-tab chi-quantri" data-tab="taikhoan">👥 Tài khoản</button>
+        </aside>
+
+        <!-- Nội dung từng mục (do các file QuanTri*.js tự vẽ vào) -->
+        <div class="qt-noidung">
+            <section class="qt-muc hien" id="muc-tongquan"></section>
+            <section class="qt-muc" id="muc-yeucau"></section>
+            <section class="qt-muc" id="muc-thucung"></section>
+            <section class="qt-muc" id="muc-danhgia"></section>
+            <section class="qt-muc" id="muc-taikhoan"></section>
         </div>
 
-        <div class="qt-ghi-chu">
-            <h2>Các chức năng quản trị</h2>
-            <p>Các mục quản lý thú cưng, loại thú cưng, người dùng, yêu cầu nhận nuôi, liên hệ và thống kê sẽ được bổ sung ở các bước tiếp theo.</p>
-        </div>
     </main>
 
+    <script src="DuLieuThuCung.js"></script>
+    <script src="DuLieuYeuCau.js"></script>
+    <script src="Chung.js"></script>
     <script src="XacThuc.js"></script>
     <script src="QuanTri.js"></script>
+    <script src="QuanTriYeuCau.js"></script>
+    <script src="QuanTriThuCung.js"></script>
+    <script src="QuanTriDanhGia.js"></script>
+    <script src="QuanTriTaiKhoan.js"></script>
 </body>
 </html>

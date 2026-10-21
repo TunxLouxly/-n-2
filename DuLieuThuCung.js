@@ -84,3 +84,31 @@ const danhSachThuCung = [
     { id: 22, ten: "Hamster Nâu", loai: "Khác", tuoi: "3 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐹", anh: "" },
     { id: 23, ten: "Thỏ Xám",     loai: "Khác", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐇", anh: "" }
 ];
+/* =========================================================
+   ThuCungDL - Quản trị thêm / sửa / xóa thú cưng (lưu trong localStorage)
+   - Lần đầu chưa có gì trong localStorage thì dùng danh sách mẫu ở trên.
+   - Bé có trangThai "daco" (đã có chủ) sẽ không hiện ở các trang công khai.
+   ========================================================= */
+const ThuCungDL = (function () {
+
+    const KHOA = "tunxpet_thucung";
+    const macDinh = JSON.parse(JSON.stringify(danhSachThuCung));     // bản sao danh sách mẫu
+
+    // Toàn bộ thú cưng (kể cả bé đã có chủ) - dùng cho trang quản trị
+    function docTatCa() {
+        try {
+            const d = JSON.parse(localStorage.getItem(KHOA));
+            if (Array.isArray(d)) return d;
+        } catch (e) { }
+        return JSON.parse(JSON.stringify(macDinh));
+    }
+    function luuTatCa(ds) { localStorage.setItem(KHOA, JSON.stringify(ds)); }
+    function datLai() { localStorage.removeItem(KHOA); }
+
+    // Danh sách công khai: bỏ các bé đã có chủ (sửa trực tiếp mảng để mọi trang đều dùng được)
+    const hienThi = docTatCa().filter(function (t) { return t.trangThai !== "daco"; });
+    danhSachThuCung.splice(0, danhSachThuCung.length);
+    hienThi.forEach(function (t) { danhSachThuCung.push(t); });
+
+    return { docTatCa: docTatCa, luuTatCa: luuTatCa, datLai: datLai };
+})();
