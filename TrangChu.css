@@ -783,3 +783,60 @@ button.btn-danh-muc {
     letter-spacing: .5px;
 }
 .logo-anh { flex-shrink: 0; }
+.vs-icon{
+  width:52px; height:52px; flex:0 0 52px;
+  border-radius:50%;
+  background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  color:#C00000;                       /* đổi thành màu đỏ chủ đạo của bạn */
+  box-shadow:0 2px 8px rgba(192,0,0,.15);
+}
+.vs-icon svg{ width:26px; height:26px; }
+/* ===== Banner lớn: ảnh nền gia đình ===== */
+.banner-lon{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:420px;
+  background:
+    linear-gradient(90deg,
+      rgba(250,160,10,.96) 0%,
+      rgba(238,110,10,.90) 42%,
+      rgba(230,90,10,.35) 100%),
+    url("ẢNH/thu-cung.jpg") center right / cover no-repeat;
+}
+.banner-chu{
+  max-width:520px;
+}
+.banner-hinh{
+  display:none;            /* phòng khi bạn quên xóa trong HTML */
+}
+
+/* Điện thoại: phủ đậm hơn để chữ vẫn rõ */
+@media (max-width:768px){
+  .banner-lon{
+    min-height:360px;
+    background:
+      linear-gradient(180deg, rgba(238,110,10,.92), rgba(230,90,10,.78)),
+      url("ẢNH/thu-cung.jpg") center / cover no-repeat;
+  }
+}
+.icon-cho{
+  display:block;
+  width:64px;
+  height:64px;
+  margin:14px auto 0;     /* nằm giữa, cách tiêu đề một chút */
+  color:#fff;             /* trắng trên nền đỏ */
+  opacity:.95;
+}
+.icon-cho,
+.icon-meo{
+  display:block;
+  width:64px;
+  height:64px;
+  margin:14px auto 0;
+  color:#fff;            /* trắng trên nền đỏ */
+  opacity:.95;
+}
+.luoi-cau-chuyen > * { animation: ccHien .5s ease; }
+@keyframes ccHien { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

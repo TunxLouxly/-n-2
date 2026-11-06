@@ -244,3 +244,32 @@ if (tuKhoaTuUrl) {
 }
 // ----- 8. Chạy lần đầu khi mở trang -----
 dsKhoi.forEach(veKhoi);
+(function () {
+    const GIAY = 5;                                   // số giây tự chuyển
+    const cham = document.getElementById("chamTrang");
+    const luoi = document.getElementById("luoiCauChuyen");
+    if (!cham || !luoi) return;
+
+    let vt = 0, tamDung = false;
+
+    // Khi người dùng tự bấm một chấm, nhớ vị trí đó để tiếp tục từ chấm đó
+    cham.addEventListener("click", function (e) {
+        const nut = e.target.closest("button, span, a, li");
+        if (!nut || nut.parentNode !== cham) return;
+        vt = Array.prototype.indexOf.call(cham.children, nut);
+    });
+
+    // Dừng khi rê chuột vào câu chuyện hoặc chấm
+    [cham, luoi].forEach(function (el) {
+        el.addEventListener("mouseenter", function () { tamDung = true; });
+        el.addEventListener("mouseleave", function () { tamDung = false; });
+    });
+
+    setInterval(function () {
+        if (tamDung || document.hidden) return;
+        const dots = cham.children;                   // lấy lại mỗi lần vì JS có thể vẽ lại chấm
+        if (dots.length < 2) return;
+        vt = (vt + 1) % dots.length;
+        dots[vt].click();
+    }, GIAY * 1000);
+})();

@@ -73,7 +73,39 @@
             ve(); XacThuc.hienToast("Đã xóa bé " + be.ten + ".");
         }, "Xóa");
     }
-
+    // ----- Nút "Chọn ảnh" trong form -----
+    function capNhatXemAnh() {
+        const inp = document.getElementById("tcAnh"), img = document.getElementById("tcXemAnh");
+        if (!inp || !img) return;
+        const v = inp.value.trim();
+        if (v) { img.src = v; img.hidden = false; } else { img.removeAttribute("src"); img.hidden = true; }
+    }
+    document.addEventListener("click", function (e) {
+        if (e.target.id === "tcChonAnh") document.getElementById("tcFileAnh").click();
+        if (e.target.id === "tcXoaAnh") { document.getElementById("tcAnh").value = ""; capNhatXemAnh(); }
+    });
+    document.addEventListener("input", function (e) { if (e.target.id === "tcAnh") capNhatXemAnh(); });
+    document.addEventListener("change", function (e) {
+        if (e.target.id !== "tcFileAnh") return;
+        const f = e.target.files[0];
+        if (!f) return;
+        if (!/^image\//.test(f.type)) { alert("Vui lòng chọn file ảnh (jpg, png...)."); return; }
+        const doc = new FileReader();
+        doc.onload = function () {
+            const hinh = new Image();
+            hinh.onload = function () {
+                const MAX = 800, tl = Math.min(1, MAX / Math.max(hinh.width, hinh.height));   // thu nhỏ để nhẹ dữ liệu
+                const cv = document.createElement("canvas");
+                cv.width = Math.round(hinh.width * tl); cv.height = Math.round(hinh.height * tl);
+                cv.getContext("2d").drawImage(hinh, 0, 0, cv.width, cv.height);
+                document.getElementById("tcAnh").value = cv.toDataURL("image/jpeg", 0.82);
+                capNhatXemAnh();
+            };
+            hinh.src = doc.result;
+        };
+        doc.readAsDataURL(f);
+        e.target.value = "";
+    });
     // ----- Form thêm / sửa -----
     function chon(id, giaTri, cacLuaChon) {
         return '<select id="' + id + '">' + cacLuaChon.map(function (c) {
@@ -104,7 +136,15 @@
                     '<div class="qt-o"><label>Triệt sản</label>' + chon("tcTriet", be.trietSan, ["Đã triệt sản", "Chưa triệt sản"]) + '</div></div>' +
                 '<div class="qt-hang">' + o("Vị trí", "tcViTri", be.viTri, "VD: Hà Nội") +
                     '<div class="qt-o"><label for="tcNgay">Ngày tiếp nhận</label><input type="date" id="tcNgay" value="' + (be.ngayTiepNhan || "") + '"></div></div>' +
-                o("Đường dẫn ảnh", "tcAnh", be.anh, "VD: ẢNH/meo-1.jpg (để trống sẽ hiện biểu tượng)") +
+                                '<div class="qt-o"><label for="tcAnh">Đường dẫn ảnh</label>' +
+                    '<div class="qt-anh-hang">' +
+                        '<input type="text" id="tcAnh" value="' + thoat(be.anh || "") + '" placeholder="VD: ẢNH/meo-1.jpg (để trống sẽ hiện biểu tượng)">' +
+                        '<button type="button" class="qt-nut vien" id="tcChonAnh">Chọn ảnh</button>' +
+                        '<button type="button" class="qt-nut vien" id="tcXoaAnh">Xóa</button>' +
+                        '<input type="file" id="tcFileAnh" accept="image/*" hidden>' +
+                    '</div>' +
+                    '<img id="tcXemAnh" class="qt-xem-anh" alt="Xem trước ảnh"' + (be.anh ? ' src="' + thoat(be.anh) + '"' : ' hidden') + '>' +
+                    '<span class="qt-loi" id="loi_tcAnh"></span></div>' +
                 '<div class="qt-o"><label for="tcCau">Câu chuyện / giới thiệu</label><textarea id="tcCau">' + thoat(be.cauChuyen || "") + '</textarea></div>' +
                 '<div class="qt-o"><label>Trạng thái</label>' + chon("tcTrangThai", be.trangThai === "daco" ? "Đã có chủ" : "Đang tìm chủ", ["Đang tìm chủ", "Đã có chủ"]) + '</div>' +
                 '<div class="qt-nut-hang"><button type="submit" class="qt-nut do">Lưu</button>' +

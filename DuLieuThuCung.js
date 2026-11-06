@@ -1,17 +1,4 @@
-/* =========================================================
-   DuLieuThuCung.js - Dữ liệu thú cưng (mẫu) dùng chung cho
-   trang chủ (TrangChu.js) và trang chi tiết (ChiTiet.js).
-   Sau này sẽ thay bằng dữ liệu lấy từ SQL Server.
-   ---------------------------------------------------------
-   Trường BẮT BUỘC (trang chủ dùng):
-     id, ten, loai ("Chó" | "Mèo" | "Khác"), tuoi, nhom ("Con" | "Lớn"),
-     gioiTinh ("Đực" | "Cái"), icon (emoji hiện khi chưa có ảnh), anh
-   Trường THÊM (trang chi tiết dùng, bé nào chưa có sẽ hiện "Đang cập nhật"):
-     giong, canNang, mauLong, tiemPhong, trietSan, tinhCach (mảng),
-     suKhoa, cauChuyen, yeuCau (mảng), viTri, ngayTiepNhan,
-     anhPhu (mảng ảnh cho khung xem ảnh)
-   Ảnh thật: để file trong thư mục images/thucung/ rồi ghi đường dẫn.
-   ========================================================= */
+
 const danhSachThuCung = [
     // ----- Chó -----
     { id: 1, ten: "Mít", loai: "Chó", tuoi: "6 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐶",
@@ -68,9 +55,10 @@ const danhSachThuCung = [
       tiemPhong: "Đã tiêm phòng",
       trietSan: "Đã triệt sản",
       viTri: "Hà Nội", ngayTiepNhan: "2026-10-17" },
+      
 
     // ----- Thú cưng khác -----
-    { id: 21, ten: "Thỏ Bông", loai: "Khác", tuoi: "5 tháng", nhom: "Con", gioiTinh: "Cái", icon: "🐰",
+    { id: 22, ten: "Thỏ Bông", loai: "Khác", tuoi: "5 tháng", nhom: "Con", gioiTinh: "Cái", icon: "🐰",
       anh: "images/thucung/tho-bong-1.jpg",
       anhPhu: ["images/thucung/tho-bong-1.jpg", "images/thucung/tho-bong-2.jpg", "images/thucung/tho-bong-3.jpg"],
       giong: "Thỏ cảnh", canNang: "1,2 kg", mauLong: "Trắng, tai hơi xám",
@@ -81,8 +69,9 @@ const danhSachThuCung = [
       cauChuyen: "Thỏ Bông được chủ cũ gửi lại vì gia đình chuyển nhà không thể mang theo. Bé quen với việc sống trong chuồng rộng, thích được thả ra chạy nhảy mỗi chiều và rất hiền khi được bế đúng cách.",
       yeuCau: ["Từ 18 tuổi trở lên", "Có chuồng rộng và chỗ cho bé chạy nhảy", "Hiểu cách chăm thỏ: cỏ khô, rau tươi, nước sạch", "Đồng ý cho TunxPet hỏi thăm bé định kỳ"],
       viTri: "Hưng Yên", ngayTiepNhan: "2026-09-15" },
-    { id: 22, ten: "Hamster Nâu", loai: "Khác", tuoi: "3 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐹", anh: "" },
-    { id: 23, ten: "Thỏ Xám",     loai: "Khác", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐇", anh: "" }
+    { id: 23, ten: "Hamster Nâu", loai: "Khác", tuoi: "3 tháng", nhom: "Con", gioiTinh: "Đực", icon: "🐹", anh: "" },
+    { id: 24, ten: "Thỏ Xám",     loai: "Khác", tuoi: "2 tuổi",  nhom: "Lớn", gioiTinh: "Đực", icon: "🐇", anh: "" },
+    
 ];
 /* =========================================================
    ThuCungDL - Quản trị thêm / sửa / xóa thú cưng (lưu trong localStorage)

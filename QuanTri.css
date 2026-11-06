@@ -182,3 +182,10 @@
     .qt-hang, .qt-dl { grid-template-columns: 1fr; gap: 0 14px; }
     .qt-hop { padding: 20px 16px; }
 }
+.qt-anh-hang { display: flex; gap: 10px; align-items: center; }
+.qt-anh-hang input[type="text"] { flex: 1; min-width: 0; }
+.qt-anh-hang .qt-nut { white-space: nowrap; }
+.qt-xem-anh { display: block; max-width: 180px; max-height: 130px; margin-top: 8px; border-radius: 8px; border: 1px solid #ddd; object-fit: cover; }
+.qt-xem-anh[hidden] { display: none; }
+.luoi-cau-chuyen > * { animation: ccHien .5s ease; }
+@keyframes ccHien { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
