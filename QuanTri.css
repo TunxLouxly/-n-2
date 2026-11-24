@@ -187,5 +187,3 @@
 .qt-anh-hang .qt-nut { white-space: nowrap; }
 .qt-xem-anh { display: block; max-width: 180px; max-height: 130px; margin-top: 8px; border-radius: 8px; border: 1px solid #ddd; object-fit: cover; }
 .qt-xem-anh[hidden] { display: none; }
-.luoi-cau-chuyen > * { animation: ccHien .5s ease; }
-@keyframes ccHien { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

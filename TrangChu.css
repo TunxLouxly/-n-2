@@ -838,5 +838,26 @@ button.btn-danh-muc {
   color:#fff;            /* trắng trên nền đỏ */
   opacity:.95;
 }
+
+/* Khung ảnh câu chuyện */
+.cc-anh {
+    width: 100%;
+    height: 212px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Ảnh tràn toàn bộ khung */
+.story-avatar {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0;
+}
+
 .luoi-cau-chuyen > * { animation: ccHien .5s ease; }
 @keyframes ccHien { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
