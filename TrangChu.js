@@ -232,67 +232,63 @@ veCauChuyen(0);
 // ----- B. Kiến thức chăm sóc thú cưng -----
 
 const danhSachKienThuc = [
-    {
-        tieu_de: "Những điều cần biết trước khi nhận nuôi thú cưng",
-        icon: "📋",
-        mo_ta: "Nhận nuôi là cam kết lâu dài. Hãy cân nhắc thời gian, chi phí, không gian sống và sự đồng thuận của cả gia đình trước khi đón một bé về nhà."
-    },
-    {
-        tieu_de: "Cách làm quen với thú cưng mới trong tuần đầu",
-        icon: "🏠",
-        mo_ta: "Hãy cho bé một góc riêng yên tĩnh, không ép bé tiếp xúc quá nhiều. Kiên nhẫn cho bé thời gian để làm quen với mùi hương và âm thanh trong nhà."
-    },
-    {
-        tieu_de: "Chế độ ăn phù hợp cho chó con và mèo con",
-        icon: "🍖",
-        mo_ta: "Bé nhỏ cần ăn chia nhiều bữa với thức ăn phù hợp độ tuổi. Luôn có nước sạch và tránh các thực phẩm độc hại như sô-cô-la, hành, tỏi."
-    },
-    {
-        tieu_de: "Lịch tiêm phòng và tẩy giun định kỳ",
-        icon: "💉",
-        mo_ta: "Tiêm phòng đầy đủ giúp bé tránh các bệnh nguy hiểm. Hãy lưu sổ tiêm và tái khám theo hẹn của bác sĩ thú y."
-    },
-    {
-        tieu_de: "Dấu hiệu cho thấy thú cưng đang không khỏe",
-        icon: "🩺",
-        mo_ta: "Bỏ ăn, ủ rũ, nôn mửa hoặc tiêu chảy kéo dài là những dấu hiệu cần đưa bé đi khám sớm thay vì tự điều trị tại nhà."
-    }
+    { tieu_de: "Những điều cần biết trước khi nhận nuôi thú cưng", icon: "📋",
+      video: "https://youtu.be/cyw3KBzn8Cw?si=zZNyfUhhXJLSjxoo",   
+      mo_ta: "Nhận nuôi là cam kết lâu dài. Hãy cân nhắc thời gian, chi phí, không gian sống và sự đồng thuận của cả gia đình trước khi đón một bé về nhà." },
+    { tieu_de: "Cách làm quen với thú cưng mới trong tuần đầu", icon: "🏠",
+      video: "https://youtu.be/INXw54A66UI?si=5IPSBFfEgkhiGk6j",
+      mo_ta: "Hãy cho bé một góc riêng yên tĩnh, không ép bé tiếp xúc quá nhiều. Kiên nhẫn cho bé thời gian để làm quen với mùi hương và âm thanh trong nhà." },
+    { tieu_de: "Chế độ ăn phù hợp cho chó con và mèo con", icon: "🍖",
+      video: "https://youtu.be/hpCPylljres?si=huzWtaHfF59c1ukl",
+      mo_ta: "Bé nhỏ cần ăn chia nhiều bữa với thức ăn phù hợp độ tuổi. Luôn có nước sạch và tránh các thực phẩm độc hại như sô-cô-la, hành, tỏi." },
+    { tieu_de: "Lịch tiêm phòng và tẩy giun định kỳ", icon: "💉",
+      video: "https://youtu.be/H3Li-_ZbbIk?si=M6GZTt5Nh8zAkxvn",
+      mo_ta: "Tiêm phòng đầy đủ giúp bé tránh các bệnh nguy hiểm. Hãy lưu sổ tiêm và tái khám theo hẹn của bác sĩ thú y." },
+    { tieu_de: "Dấu hiệu cho thấy thú cưng đang không khỏe", icon: "🩺",
+      video: "https://youtu.be/XPT-Pp5TJzQ?si=8kphj5pKvPCt76yc",
+      mo_ta: "Bỏ ăn, ủ rũ, nôn mửa hoặc tiêu chảy kéo dài là những dấu hiệu cần đưa bé đi khám sớm thay vì tự điều trị tại nhà." }
 ];
 
 const ktLon = document.getElementById("ktLon");
 const ktDs  = document.getElementById("ktDs");
 
-// Hiện bài kiến thức ở khung lớn
+// Lấy mã video 11 ký tự từ link YouTube (hoặc từ chính mã)
+function layIdYoutube(s) {
+    if (!s) return "";
+    const m = s.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+    if (m) return m[1];
+    return /^[A-Za-z0-9_-]{11}$/.test(s.trim()) ? s.trim() : "";
+}
+
+// Hiện bài số "chiSo": khung lớn tự phát video (tắt tiếng, lặp lại), bấm mục bên phải thì đổi video
 function hienBaiKienThuc(chiSo) {
     const bai = danhSachKienThuc[chiSo];
+    const id = layIdYoutube(bai.video);
+    const khungAnh = id
+        ? `<div class="kt-anh co-video">
+               <iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=1&rel=0&modestbranding=1&playsinline=1"
+                       title="${bai.tieu_de}" loading="lazy"
+                       allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+           </div>`
+        : `<div class="kt-anh">${bai.icon}</div>`;
 
-    ktLon.innerHTML = `
-        <div class="kt-anh">${bai.icon}</div>
+    ktLon.innerHTML = khungAnh + `
         <div class="kt-noi-dung">
             <h3>${bai.tieu_de}</h3>
             <p>${bai.mo_ta}</p>
         </div>`;
-
     ktDs.querySelectorAll("li").forEach(function (li, i) {
         li.classList.toggle("active", i === chiSo);
     });
 }
 
-// Vẽ danh sách kiến thức bên phải
+// Vẽ danh sách bên phải, bấm vào bài nào thì hiện bài đó ở khung lớn
 danhSachKienThuc.forEach(function (bai, i) {
     const li = document.createElement("li");
-
-    li.innerHTML = `
-        <div class="kt-icon">${bai.icon}</div>
-        <h4>${bai.tieu_de}</h4>`;
-
-    li.addEventListener("click", function () {
-        hienBaiKienThuc(i);
-    });
-
+    li.innerHTML = `<div class="kt-icon">${bai.icon}</div><h4>${bai.tieu_de}</h4>`;
+    li.addEventListener("click", function () { hienBaiKienThuc(i); });
     ktDs.appendChild(li);
 });
-
 hienBaiKienThuc(0);
 
 
@@ -387,4 +383,91 @@ dsKhoi.forEach(veKhoi);
 
     }, GIAY * 1000);
 
+})();
+/* =========================================================
+   Khối bài viết / tin tức:
+   - Bài nổi bật tự đổi, có chấm chuyển
+   - Đếm ngược tới ngày hội
+   - Số liệu đếm từ 0 lên
+   - Hiện dần khi cuộn tới
+   ========================================================= */
+(function () {
+    // ----- 1. Bài nổi bật tự đổi -----
+    const slider = document.getElementById("ttSlider");
+    if (slider) {
+        const cacBai = Array.prototype.slice.call(slider.querySelectorAll(".tt-lon"));
+        const cham = document.getElementById("ttCham");
+        let vt = 0, tamDung = false, dem = null;
+        const dots = cacBai.map(function (_, i) {
+            const b = document.createElement("button");
+            b.type = "button"; b.setAttribute("aria-label", "Bài " + (i + 1));
+            b.addEventListener("click", function () { hien(i); datLai(); });
+            cham.appendChild(b);
+            return b;
+        });
+        function hien(i) {
+            vt = (i + cacBai.length) % cacBai.length;
+            cacBai.forEach(function (b, k) { b.classList.toggle("dang-hien", k === vt); });
+            dots.forEach(function (d, k) { d.classList.toggle("bat", k === vt); });
+        }
+        function datLai() {
+            clearInterval(dem);
+            dem = setInterval(function () { if (!tamDung && !document.hidden) hien(vt + 1); }, 5000);
+        }
+        slider.addEventListener("mouseenter", function () { tamDung = true; });
+        slider.addEventListener("mouseleave", function () { tamDung = false; });
+        hien(0); datLai();
+    }
+
+    // ----- 2. Đếm ngược tới ngày hội -----
+    const suKien = document.getElementById("ttSuKien");
+    if (suKien) {
+        const dich = new Date(suKien.dataset.ngay).getTime();
+        const hai = function (n) { return String(n).padStart(2, "0"); };
+        function capNhat() {
+            let con = Math.max(0, dich - Date.now());
+            const ngay = Math.floor(con / 86400000); con %= 86400000;
+            const gio = Math.floor(con / 3600000);   con %= 3600000;
+            const phut = Math.floor(con / 60000);
+            const giay = Math.floor((con % 60000) / 1000);
+            document.getElementById("dNgay").textContent = hai(ngay);
+            document.getElementById("dGio").textContent = hai(gio);
+            document.getElementById("dPhut").textContent = hai(phut);
+            document.getElementById("dGiay").textContent = hai(giay);
+        }
+        capNhat();
+        setInterval(capNhat, 1000);
+    }
+
+    // ----- 3. Số liệu đếm từ 0 lên -----
+    function demSo(el) {
+        const dich = parseInt(el.dataset.dich, 10) || 0;
+        const batDau = performance.now(), thoiGian = 1400;
+        function buoc(t) {
+            const p = Math.min(1, (t - batDau) / thoiGian);
+            el.textContent = Math.round(dich * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(buoc);
+        }
+        requestAnimationFrame(buoc);
+    }
+
+    // ----- 4. Hiện dần khi cuộn tới -----
+    const cacAn = document.querySelectorAll("#tinTuc .tt-an");
+    function hienTatCa() {
+        cacAn.forEach(function (el) { el.classList.add("hien"); });
+        document.querySelectorAll("#tinTuc .tt-so b").forEach(function (b) { b.textContent = b.dataset.dich; });
+    }
+    if (!("IntersectionObserver" in window)) { hienTatCa(); return; }
+    const quanSat = new IntersectionObserver(function (ds) {
+        ds.forEach(function (d) {
+            if (!d.isIntersecting) return;
+            d.target.classList.add("hien");
+            d.target.querySelectorAll("b[data-dich]").forEach(demSo);
+            quanSat.unobserve(d.target);
+        });
+    }, { threshold: 0.15 });
+    cacAn.forEach(function (el, i) {
+        el.style.transitionDelay = (i % 4) * 0.08 + "s";   // hiện lần lượt
+        quanSat.observe(el);
+    });
 })();
