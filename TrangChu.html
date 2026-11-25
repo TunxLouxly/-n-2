@@ -213,31 +213,93 @@
         </div>
     </section>
 
-    <!-- ===== 6. BÀI VIẾT / TIN TỨC ===== -->
-    <section class="bai-viet container">
-        <div class="cot-bai-viet cot-rong">
-            <h3 class="tieu-de-nho">NUÔI THÚ CƯNG <a href="#">Xem thêm ›</a></h3>
-            <div class="bv-hai-cot">
-                <article class="bv-noi-bat">
-                    <div class="bv-anh bv-do">🐶<br><small>Chuẩn bị đón bé</small></div>
-                    <h4>5 việc cần chuẩn bị trước khi đón thú cưng về nhà</h4>
-                    <p class="ngay">10/10/2026</p>
-                </article>
-                <ul class="bv-ds">
-                    <li><div class="bv-anh-nho bv-vang">🐱</div><div><h5>Vì sao nên nhận nuôi thay vì mua thú cưng?</h5><p class="ngay">08/10/2026</p></div></li>
-                    <li><div class="bv-anh-nho bv-do">💉</div><div><h5>Lịch tiêm phòng cơ bản cho chó con và mèo con</h5><p class="ngay">05/10/2026</p></div></li>
-                    <li><div class="bv-anh-nho bv-vang">🍖</div><div><h5>Cho thú cưng ăn thế nào cho đúng?</h5><p class="ngay">01/10/2026</p></div></li>
+      <!-- ===== 6. BÀI VIẾT / TIN TỨC ===== -->
+    <section class="tt container" id="tinTuc">
+
+        <!-- Cột trái: NUÔI THÚ CƯNG -->
+        <div class="tt-cot">
+            <h3 class="tt-tieu-de tt-an">NUÔI THÚ CƯNG <a href="#">Xem thêm ›</a></h3>
+            <div class="tt-hai-cot">
+
+                <!-- Bài nổi bật tự đổi sau vài giây -->
+                <div class="tt-slider tt-an" id="ttSlider">
+                    <article class="tt-the tt-lon dang-hien" style="--anh:url('ẢNH/thucung.jpg')">
+                        <span class="tt-nhan nhan-do">Chuẩn bị</span>
+                        <div class="tt-lop">
+                            <h4>5 việc cần chuẩn bị trước khi đón thú cưng về nhà</h4>
+                            <p class="tt-meta">10/10/2026 · 3 phút đọc</p>
+                        </div>
+                    </article>
+                    <article class="tt-the tt-lon" style="--anh:url('ẢNH/nhathu.jpg')">
+                        <span class="tt-nhan nhan-cam">Làm quen</span>
+                        <div class="tt-lop">
+                            <h4>Tuần đầu tiên: giúp bé làm quen với ngôi nhà mới</h4>
+                            <p class="tt-meta">06/10/2026 · 4 phút đọc</p>
+                        </div>
+                    </article>
+                    <article class="tt-the tt-lon" style="--anh:url('ẢNH/khambenh.jpg')">
+                        <span class="tt-nhan nhan-xanh">Sức khỏe</span>
+                        <div class="tt-lop">
+                            <h4>Những dấu hiệu cho thấy thú cưng cần đi khám sớm</h4>
+                            <p class="tt-meta">03/10/2026 · 3 phút đọc</p>
+                        </div>
+                    </article>
+                    <div class="tt-cham" id="ttCham"></div>
+                </div>
+
+                <!-- Danh sách bài bên cạnh -->
+                <ul class="tt-ds">
+                    <li class="tt-an">
+                        <a href="#" class="tt-thumb" style="--anh:url('ẢNH/khambenh.jpg')"><span class="tt-nhan nho nhan-cam">Nhận nuôi</span></a>
+                        <div class="tt-chu">
+                            <h5><a href="#">Vì sao nên nhận nuôi thay vì mua thú cưng?</a></h5>
+                            <p class="tt-meta"><span class="tt-lich"><b>08</b>Th10</span> 3 phút đọc</p>
+                        </div>
+                    </li>
+                    <li class="tt-an">
+                        <a href="#" class="tt-thumb" style="--anh:url('ẢNH/tiemphong.jpg')"><span class="tt-nhan nho nhan-xanh">Sức khỏe</span></a>
+                        <div class="tt-chu">
+                            <h5><a href="#">Lịch tiêm phòng cơ bản cho chó con và mèo con</a></h5>
+                            <p class="tt-meta"><span class="tt-lich"><b>05</b>Th10</span> 4 phút đọc</p>
+                        </div>
+                    </li>
+                    <li class="tt-an">
+                        <a href="#" class="tt-thumb" style="--anh:url('ẢNH/choan.jpg')"><span class="tt-nhan nho nhan-do">Dinh dưỡng</span></a>
+                        <div class="tt-chu">
+                            <h5><a href="#">Cho thú cưng ăn thế nào cho đúng?</a></h5>
+                            <p class="tt-meta"><span class="tt-lich"><b>01</b>Th10</span> 3 phút đọc</p>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <div class="cot-bai-viet">
-            <h3 class="tieu-de-nho">TIN TỪ TUNXPET <a href="#">Xem thêm ›</a></h3>
-            <article class="bv-noi-bat">
-                <div class="bv-anh bv-vang">🏠<br><small>Ngày hội nhận nuôi</small></div>
-                <h4>Ngày hội nhận nuôi: 20 bé tìm được chủ mới</h4>
-            </article>
-            <ul class="bv-tin">
+        <!-- Cột phải: TIN TỪ TUNXPET -->
+        <div class="tt-cot">
+            <h3 class="tt-tieu-de tt-an">TIN TỪ TUNXPET <a href="#">Xem thêm ›</a></h3>
+
+            <!-- Sự kiện sắp tới + đếm ngược -->
+            <div class="tt-su-kien tt-an" id="ttSuKien" data-ngay="2026-12-20T08:00:00" style="--anh:url('ẢNH/ngay-hoi.jpg')">
+                <span class="tt-nhan nhan-vang">Sự kiện sắp tới</span>
+                <h4>Ngày hội nhận nuôi TunxPet</h4>
+                <p>20/12/2026 · Hưng Yên</p>
+                <div class="tt-dem" id="ttDem">
+                    <div><b id="dNgay">00</b><small>Ngày</small></div>
+                    <div><b id="dGio">00</b><small>Giờ</small></div>
+                    <div><b id="dPhut">00</b><small>Phút</small></div>
+                    <div><b id="dGiay">00</b><small>Giây</small></div>
+                </div>
+                <a href="LienHe.html" class="tt-btn">Đăng ký tham gia</a>
+            </div>
+
+            <!-- Số liệu nổi bật (đếm từ 0 lên khi cuộn tới) -->
+            <div class="tt-so tt-an">
+                <div><b data-dich="20">0</b><span>bé đã tìm được chủ</span></div>
+                <div><b data-dich="150">0</b><span>yêu cầu đã duyệt</span></div>
+                <div><b data-dich="30">0</b><span>tình nguyện viên</span></div>
+            </div>
+
+            <ul class="tt-tin tt-an">
                 <li><a href="#">Thông báo: quy trình xét duyệt yêu cầu nhận nuôi</a></li>
                 <li><a href="#">Kêu gọi tình nguyện viên chăm sóc các bé cuối tuần</a></li>
             </ul>
